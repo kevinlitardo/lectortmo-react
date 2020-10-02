@@ -1,0 +1,213 @@
+.fileModal {
+  position: fixed;
+  width: 100%;
+  height: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  background: rgba(2, 2, 2, 0.9);
+  color: #f1f1f1;
+  padding: 20px;
+}
+
+.fileModal::-webkit-scrollbar {
+  display: none;
+}
+
+.fileModal > .fileModal__closeButton {
+  /* display: none; */
+  z-index: 999;
+  background: #343a40;
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  width: 45px;
+  height: 45px;
+  color: #929a9e;
+  border-radius: 2px;
+}
+
+.fileModal > .fileModal__closeButton > .closeIcon {
+  color: #f1f1f1;
+}
+
+.fileModal__container {
+  width: 100%;
+  height: auto;
+  background: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 2px;
+  padding: 10px;
+}
+
+.fileModal__container > .fileModal__type {
+  background: blue;
+  display: inline-block;
+  width: 100%;
+  height: 8vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: x-large;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  border-radius: 2px;
+}
+
+.fileModal__container > .fileModal__image-container {
+  height: auto;
+  width: 100%;
+  position: relative;
+  border-radius: 2px;
+}
+
+.fileModal__container > .fileModal__image-container > .fileModal__image {
+  width: 100%;
+  height: 100%;
+}
+
+.fileModal__container
+  > .fileModal__image-container
+  > .fileModal__demography
+  > span {
+  position: absolute;
+  z-index: 999;
+  bottom: 0;
+  width: 100%;
+  height: 8vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: red;
+  color: #f1f1f1;
+  font-size: x-large;
+}
+
+.fileModal__container
+  > .fileModal__image-container
+  > .fileModal__demography
+  > span
+  > .MuiSvgIcon-root {
+  margin-right: 10px;
+  font-size: xx-large;
+}
+
+.fileModal__container > .fileModal__title {
+  display: inline-block;
+  width: 100%;
+  margin: 10px 0;
+  height: auto;
+}
+
+.fileModal__container > .fileModal__title > h2 {
+  font-size: xx-large;
+  font-weight: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fileModal__container > .fileModal__rating {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 10px;
+}
+
+.fileModal__container > .fileModal__rating > span {
+  display: flex;
+  align-items: center;
+  font-size: large;
+}
+
+.fileModal__container > .fileModal__rating > span > .MuiSvgIcon-root {
+  color: #ffdc5e;
+  font-size: xx-large;
+  margin-right: 10px;
+}
+
+.fileModal__container
+  > .fileModal__rating
+  > .fileModal__rating--buttons
+  > .MuiIconButton-root {
+  width: 35px;
+  height: 35px;
+  padding: 10px;
+}
+
+.fileModal__container > .fileModal__description {
+  margin-bottom: 10px;
+  width: 100%;
+  height: auto;
+  max-height: 135px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.fileModal__container > .fileModal__description::-webkit-scrollbar {
+  display: none;
+}
+
+.fileModal__container > .fileModal__description > p {
+  width: 100%;
+  font-size: large;
+  text-align: justify;
+}
+
+.fileModal__container > .fileModal__tags,
+.fileModal__status {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.fileModal__container > .fileModal__tags > h4,
+.fileModal__status > h4 {
+  color: #929a9e;
+  font-size: large;
+  font-weight: normal;
+  margin-bottom: 3px;
+  display: inline-block;
+  width: 100%;
+}
+
+.fileModal__container > .fileModal__tags > span {
+  color: #f1f1f1;
+  background: #2957ba;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  padding: 5px 10px;
+  border-radius: 2px;
+}
+
+.fileModal__container > .fileModal__status > span {
+  display: flex;
+  align-items: center;
+  font-size: large;
+}
+
+.fileModal__container > .fileModal__status > span > .MuiSvgIcon-root {
+  margin-right: 5px;
+}
+
+.fileModal__container > a {
+  color: red;
+  display: inline-block;
+  width: 100%;
+  height: auto;
+  background: #2957ba;
+  text-decoration: none;
+  font-size: medium;
+  text-align: center;
+  padding: 10px 0;
+  text-transform: uppercase;
+  border-radius: 2px;
+  color: #f1f1f1;
+}

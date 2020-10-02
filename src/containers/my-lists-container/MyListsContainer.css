@@ -1,0 +1,15 @@
+.myListsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+
+.myListsContainer > h2 {
+  font-size: xx-large;
+  font-weight: normal;
+  color: #2957ba;
+  margin: 5px 0;
+  text-align: center;
+}

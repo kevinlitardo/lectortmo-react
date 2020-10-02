@@ -1,0 +1,19 @@
+.trendingContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+  row-gap: 10px;
+  width: 100%;
+  height: auto;
+}
+
+.trendingContainer > h2 {
+  font-size: xx-large;
+  color: #2957ba;
+  font-weight: lighter;
+  display: inline-block;
+  height: fit-content;
+  grid-column: span 2;
+  text-align: center;
+  padding: 10px;
+}

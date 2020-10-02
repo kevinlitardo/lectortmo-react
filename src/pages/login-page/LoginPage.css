@@ -1,0 +1,67 @@
+.loginPage {
+  width: 100%;
+  height: auto;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.loginPage > h1 {
+  color: #2957ba;
+  font-weight: 400;
+}
+
+.loginPage > form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.loginPage > form > label {
+  display: inline-block;
+  width: fit-content;
+  color: #929a9e;
+  font-size: large;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  border-left: 2px solid #2957ba;
+  padding-left: 7px;
+}
+
+.loginPage > form > .loginPage__loginBtn {
+  margin-top: 25px;
+  background: #2957ba;
+  color: #f1f1f1;
+  font-size: medium;
+}
+
+.loginPage > form > .loginPage__loginBtn:hover {
+  background: #1b3879;
+}
+
+.loginPage__errorMessage {
+  width: 100%;
+  height: auto;
+  margin: 5px 0;
+  background: rgb(160, 33, 33);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.loginPage__errorMessage > h3 {
+  color: #f1f1f1;
+  font-weight: normal;
+  font-size: larger;
+  margin: 10px;
+  display: inline-block;
+  width: auto;
+}
+
+.loginPage__errorMessage > .MuiSvgIcon-root {
+  color: #f1f1f1;
+  margin-right: 10px;
+  cursor: pointer;
+}
