@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
+import useColor from "../../hooks/useType";
+
 import "./FileModal.css";
 import { IconButton } from "@material-ui/core";
 import { CloseOutlined, ThumbDownAlt, ThumbUpAlt } from "@material-ui/icons";
 import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 import { Link } from "react-router-dom";
-import useColor from "../../hooks/useType";
 
 const fileModal = document.getElementById("fileModal");
 
 const FileModal = ({ hideFile, props }) => {
   const IconStar = props.IconStar;
   const IconType = props.IconType;
-  const title = props.title.replace(/\s+/g, "-").toLowerCase();
+  const title = props.title.replace(/\s+/g, "-");
+  const type = props.type.toLowerCase();
   const [color, setColor] = useState("");
 
   const { typeColor, demographyColor } = useColor(props.type, props.demography);
@@ -104,7 +106,7 @@ const FileModal = ({ hideFile, props }) => {
           </span>
         </div>
 
-        <Link to={`/manhwas/${title}`}>Ver {props.type}</Link>
+        <Link to={`/${type}s/${title}`}>Ver {props.type}</Link>
       </div>
     </div>,
     fileModal

@@ -44,7 +44,6 @@
 }
 
 .fileModal__container > .fileModal__type {
-  background: blue;
   display: inline-block;
   width: 100%;
   height: 8vh;
@@ -55,6 +54,7 @@
   text-transform: uppercase;
   margin-bottom: 10px;
   border-radius: 2px;
+  text-shadow: 1px 1px 0 #000;
 }
 
 .fileModal__container > .fileModal__image-container {
@@ -81,9 +81,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: red;
   color: #f1f1f1;
   font-size: x-large;
+  text-shadow: 1px 1px 0 #000;
 }
 
 .fileModal__container
