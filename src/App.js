@@ -11,7 +11,7 @@ import LastNewsContainer from "./containers/news-container/LastNewsContainer";
 import UploadPage from "./pages/upload-page/UploadPage";
 import LoginPage from "./pages/login-page/LoginPage";
 import RegisterPage from "./pages/register-page/RegisterPage";
-import FileView from "./containers/file-view/FileView";
+import FilePage from "./pages/file-page/FilePage";
 
 import "./App.css";
 
@@ -35,7 +35,7 @@ function App() {
         </Route>
         <Route path="/login" component={LoginPage} />
         <Route path="/register" component={RegisterPage} />
-        <Route path="/:type/:title" component={FileView} />
+        <Route path="/:type/:title" component={FilePage} />
       </div>
     </Router>
   );

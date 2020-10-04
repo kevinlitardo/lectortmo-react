@@ -1,6 +1,6 @@
 import React from "react";
 
-import MangaItem from "../../components/manga-item/MangaItem";
+import FileItem from "../../components/file-item/FileItem";
 
 import "./TrendingContainer.css";
 import StarIcon from "@material-ui/icons/Star";
@@ -12,7 +12,7 @@ export default function MangasContainer() {
   return (
     <div className="trendingContainer">
       <h2>Trending</h2>
-      <MangaItem
+      <FileItem
         title="Boko no hero Academia"
         IconStar={StarIcon}
         type="Manga"

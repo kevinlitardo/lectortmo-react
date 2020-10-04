@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import MangaItem from "../../components/manga-item/MangaItem";
+import FileItem from "../../components/file-item/FileItem";
 import LoaderButton from "../../components/loader-button/LoaderButton";
+import Loading from "../../components/loading/Loading";
 
 import "./MangasContainer.css";
 import StarIcon from "@material-ui/icons/Star";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 
 export default function MangasContainer() {
+  const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   useEffect(() => {
     const fetcher = async () => {
@@ -17,6 +19,7 @@ export default function MangasContainer() {
           "https://lectortmo-api.herokuapp.com/manhwas"
         );
         setData(req.data);
+        setLoading(false);
       } catch (error) {
         console.error(error);
       }
@@ -24,10 +27,13 @@ export default function MangasContainer() {
     fetcher();
   }, []);
 
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <div className="mangasContainer">
       {data.map((item) => (
-        <MangaItem
+        <FileItem
           IconStar={StarIcon}
           IconType={FavoriteIcon}
           key={item._id}
@@ -42,15 +48,7 @@ export default function MangasContainer() {
           status={item.status}
         />
       ))}
-      {/* <MangaItem
-        title="Sister Neighbors"
-        IconStar={StarIcon}
-        type="Manhwa"
-        rating="10.00"
-        IconType={FavoriteIcon}
-        demography="Seinen"
-        styles={styles}
-      /> */}
+
       <div className="mangasContainer__button">
         <LoaderButton />
       </div>

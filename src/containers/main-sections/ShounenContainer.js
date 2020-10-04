@@ -1,6 +1,6 @@
 import React from "react";
 
-import MangaItem from "../../components/manga-item/MangaItem";
+import FileItem from "../../components/file-item/FileItem";
 import LoaderButton from "../../components/loader-button/LoaderButton";
 
 import "./MangasContainer.css";
@@ -12,7 +12,7 @@ const bg = "url(https://otakuteca.com/images/books/cover/5bc8e164a3ea4.jpg)";
 export default function MangasContainer() {
   return (
     <div className="mangasContainer">
-      <MangaItem
+      <FileItem
         title="Boko no hero Academia"
         IconStar={StarIcon}
         type="Manga"

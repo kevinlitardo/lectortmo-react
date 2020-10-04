@@ -1,0 +1,240 @@
+/* FILE */
+
+.filePage__container {
+  width: 100%;
+  height: auto;
+  background: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 2px;
+  padding: 10px;
+}
+
+.filePage__container > .filePage__type {
+  display: inline-block;
+  width: 100%;
+  height: 8vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: x-large;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  border-radius: 2px;
+  color: #f1f1f1;
+  text-shadow: 1px 1px 0 #000;
+}
+
+.filePage__container > .filePage__image-container {
+  height: auto;
+  width: 100%;
+  position: relative;
+  border-radius: 2px;
+}
+
+.filePage__container > .filePage__image-container > .filePage__image {
+  width: 100%;
+  height: 100%;
+}
+
+.filePage__container
+  > .filePage__image-container
+  > .filePage__demography
+  > span {
+  position: absolute;
+  z-index: 999;
+  bottom: 0;
+  width: 100%;
+  height: 8vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f1f1f1;
+  font-size: x-large;
+  text-shadow: 1px 1px 0 #000;
+}
+
+.filePage__container
+  > .filePage__image-container
+  > .filePage__demography
+  > span
+  > .MuiSvgIcon-root {
+  margin-right: 10px;
+  font-size: xx-large;
+}
+
+.filePage__container > .filePage__title {
+  display: inline-block;
+  width: 100%;
+  margin: 10px 0;
+  height: auto;
+}
+
+.filePage__container > .filePage__title > h2 {
+  color: #f1f1f1;
+  font-size: xx-large;
+  font-weight: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 1px 1px 0 #000;
+}
+
+.filePage__container > .filePage__rating {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 10px;
+}
+
+.filePage__container > .filePage__rating > span {
+  display: flex;
+  align-items: center;
+  font-size: large;
+  color: #f1f1f1;
+  background: #343a40;
+  padding: 3px 5px;
+}
+
+.filePage__container > .filePage__rating > span > .MuiSvgIcon-root {
+  color: #ffdc5e;
+  font-size: x-large;
+  margin-right: 10px;
+}
+
+.filePage__container
+  > .filePage__rating
+  > .filePage__rating--buttons
+  > .MuiIconButton-root {
+  width: 35px;
+  height: 35px;
+  padding: 10px;
+}
+
+.filePage__container > .filePage__description {
+  margin-bottom: 10px;
+  width: 100%;
+  height: auto;
+}
+
+.filePage__container > .filePage__description::-webkit-scrollbar {
+  display: none;
+}
+
+.filePage__container > .filePage__description > p {
+  width: 100%;
+  font-size: large;
+  text-align: justify;
+  color: #f1f1f1;
+}
+
+.filePage__container > .filePage__tags,
+.filePage__status {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.filePage__container > .filePage__tags > h4,
+.filePage__status > h4,
+.filePage__caps > h4 {
+  color: #929a9e;
+  font-size: large;
+  font-weight: normal;
+  margin-bottom: 5px;
+  display: inline-block;
+  width: 100%;
+}
+
+.filePage__container > .filePage__tags > span {
+  color: #f1f1f1;
+  background: #2957ba;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  padding: 5px 10px;
+  border-radius: 2px;
+}
+
+.filePage__container > .filePage__status > span {
+  display: flex;
+  align-items: center;
+  font-size: large;
+  color: #f1f1f1;
+}
+
+.filePage__container > .filePage__status > span > .MuiSvgIcon-root {
+  margin-right: 5px;
+}
+
+.filePage__container > a {
+  display: inline-block;
+  width: 100%;
+  height: auto;
+  background: #2957ba;
+  text-decoration: none;
+  font-size: medium;
+  text-align: center;
+  padding: 10px 0;
+  text-transform: uppercase;
+  border-radius: 2px;
+  color: #f1f1f1;
+}
+
+.filePage__caps {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filePage__caps > .filePage__caps--container {
+  width: 100%;
+  height: auto;
+  max-height: calc(45px * 10 + 5px + 40px);
+  padding: 0 5px;
+}
+
+.filePage__caps > .filePage__caps--container > .cap {
+  background: #343a40;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 45px;
+  border-radius: 2px;
+}
+
+.filePage__caps > .filePage__caps--container > .cap > span {
+  color: #f1f1f1;
+  font-size: larger;
+  margin-left: 5px;
+  max-width: 70%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.filePage__caps > .filePage__caps--container > .cap > .buttons {
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  color: #2957ba;
+}
+
+.filePage__caps
+  > .filePage__caps--container
+  > .cap
+  > .buttons
+  > .MuiSvgIcon-root {
+  font-size: xx-large;
+  cursor: pointer;
+}

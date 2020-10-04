@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import FileModal from "../../containers/file-modal/FileModal";
 import useColor from "../../hooks/useType";
 
-import "./MangaItem.css";
+import "./FileItem.css";
 
-export default function MangaItem(props) {
+export default function FileItem(props) {
   const IconStar = props.IconStar;
   const IconType = props.IconType;
   const [fileModal, setFileModal] = useState(false);
@@ -18,20 +18,20 @@ export default function MangaItem(props) {
     <>
       {fileModal && <FileModal hideFile={hideFile} props={props} />}
       <div
-        className="mangaItem"
+        className="fileItem"
         style={{ backgroundImage: `url(${props.bg})` }}
         onClick={showFile}
       >
-        <div className="mangaItem__header">
+        <div className="fileItem__header">
           <h3>{props.title}</h3>
           <span style={{ background: typeColor }}>{props.type}</span>
           <span>
-            <IconStar className="mangaItem__header-icon" />
+            <IconStar className="fileItem__header-icon" />
             {props.rating}
           </span>
         </div>
         <div
-          className="mangaItem__footer"
+          className="fileItem__footer"
           style={{ background: demographyColor }}
         >
           {props.demography === "Seinen" && <IconType />}

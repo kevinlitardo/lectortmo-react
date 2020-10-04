@@ -35,6 +35,13 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
+function validation(value) {
+  const username = value.username.includes("a");
+  if (username) {
+    console.log("tiene un a");
+  }
+}
+
 export default function RegisterPage(props) {
   const classes = useStyles();
   const [error, setError] = useState({
@@ -72,11 +79,12 @@ export default function RegisterPage(props) {
         setError({ status: false });
       }, 5000);
     }
-  }, [error]);
+  }, [error, userData]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    validation(userData);
     // if (userData.username.length < 4) {
     //   return setError({ username: true });
     // }
@@ -90,38 +98,38 @@ export default function RegisterPage(props) {
     //   return setError({ pass_validation: true });
     // }
 
-    try {
-      await axios.post(
-        "https://lectortmo-api.herokuapp.com/user/register",
-        // "http://localhost:4000/user/register",
-        {
-          username: userData.username,
-          email: userData.email,
-          password: userData.password,
-        }
-      );
+    // try {
+    //   await axios.post(
+    //     "https://lectortmo-api.herokuapp.com/user/register",
+    //     // "http://localhost:4000/user/register",
+    //     {
+    //       username: userData.username,
+    //       email: userData.email,
+    //       password: userData.password,
+    //     }
+    //   );
 
-      setUserData({
-        showPassword: false,
-        showPassValidation: false,
-        username: "",
-        email: "",
-        password: "",
-        pass_validation: "",
-      });
+    //   setUserData({
+    //     showPassword: false,
+    //     showPassValidation: false,
+    //     username: "",
+    //     email: "",
+    //     password: "",
+    //     pass_validation: "",
+    //   });
 
-      props.history.push("/login");
-    } catch (err) {
-      window.scroll({ top: 0, behavior: "smooth" });
-      setError({
-        status: true,
-        error: err.response.data,
-      });
-      setUserData({
-        showPassword: false,
-        showPassValidation: false,
-      });
-    }
+    //   props.history.push("/login");
+    // } catch (err) {
+    //   window.scroll({ top: 0, behavior: "smooth" });
+    //   setError({
+    //     status: true,
+    //     error: err.response.data,
+    //   });
+    //   setUserData({
+    //     showPassword: false,
+    //     showPassValidation: false,
+    //   });
+    // }
   };
 
   return (

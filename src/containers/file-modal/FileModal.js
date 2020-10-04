@@ -5,7 +5,7 @@ import useColor from "../../hooks/useType";
 
 import "./FileModal.css";
 import { IconButton } from "@material-ui/core";
-import { CloseOutlined, ThumbDownAlt, ThumbUpAlt } from "@material-ui/icons";
+import { CloseOutlined } from "@material-ui/icons";
 import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 import { Link } from "react-router-dom";
 
@@ -40,6 +40,10 @@ const FileModal = ({ hideFile, props }) => {
         </div>
 
         <div className="fileModal__image-container">
+          <span>
+            <IconStar className="mangaItem__header-icon" />
+            {props.rating}
+          </span>
           <img src={props.bg} alt={props.title} className="fileModal__image" />
           <div className="fileModal__demography">
             <span style={{ background: demographyColor }}>
@@ -51,40 +55,6 @@ const FileModal = ({ hideFile, props }) => {
 
         <div className="fileModal__title">
           <h2>{props.title}</h2>
-        </div>
-
-        <div className="fileModal__rating">
-          <span>
-            <IconStar className="mangaItem__header-icon" />
-            {props.rating}
-          </span>
-
-          <div className="fileModal__rating--buttons">
-            <IconButton
-              aria-label="like-button"
-              style={{ marginRight: "15px", background: "#51a351" }}
-            >
-              <ThumbUpAlt
-                style={{
-                  fontSize: "x-large",
-
-                  color: "#f1f1f1",
-                }}
-              />
-            </IconButton>
-            <IconButton
-              aria-label="dislike-button"
-              style={{ background: "#bd362f" }}
-            >
-              <ThumbDownAlt
-                style={{
-                  fontSize: "x-large",
-
-                  color: "#f1f1f1",
-                }}
-              />
-            </IconButton>
-          </div>
         </div>
 
         <div className="fileModal__description">

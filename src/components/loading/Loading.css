@@ -1,0 +1,59 @@
+/* LOADER */
+
+.wrapper {
+  position: absolute;
+  width: 200px;
+  height: 3px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wrapper > .loader {
+  height: 100%;
+  display: flex;
+  transform: translateZ(0);
+}
+
+.wrapper > .loader > div {
+  flex: 1;
+  background: #2957ba;
+  animation: go 0.8s infinite alternate ease;
+  box-shadow: 0 0 20px #02afff;
+}
+
+.wrapper > .loader > div:nth-child(1) {
+  animation-delay: -0.9s;
+}
+.wrapper > .loader > div:nth-child(2) {
+  animation-delay: -0.8s;
+}
+.wrapper > .loader > div:nth-child(3) {
+  animation-delay: -0.7s;
+}
+.wrapper > .loader > div:nth-child(4) {
+  animation-delay: -0.6s;
+}
+.wrapper > .loader > div:nth-child(5) {
+  animation-delay: -0.5s;
+}
+.wrapper > .loader > div:nth-child(6) {
+  animation-delay: -0.4s;
+}
+.wrapper > .loader > div:nth-child(7) {
+  animation-delay: -0.3s;
+}
+.wrapper > .loader > div:nth-child(8) {
+  animation-delay: -0.2s;
+}
+.wrapper > .loader > div:nth-child(9) {
+  animation-delay: -0.1s;
+}
+
+@keyframes go {
+  100% {
+    background: transparent;
+    flex: 10;
+    box-shadow: 0 0 0 transparent;
+  }
+}
