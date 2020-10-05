@@ -36,10 +36,27 @@ const useStyles = makeStyles(() => ({
 }));
 
 function validation(value) {
-  const username = value.username.includes("a");
-  if (username) {
-    console.log("tiene un a");
+  let errors = {};
+
+  if (/[\w\d-]{8,32}/gi.test(value.username)) {
+    errors = {};
+  } else {
+    errors = { username: true };
   }
+
+  if (/([\w\d.-]+@[\w\d.-]+\.[\w]+)/gi.test(value.email)) {
+    errors = {};
+  } else {
+    errors = { email: true };
+  }
+
+  if (/[\w\d\s.-?¿¡!$#@%&/+*=]{8,32}/gi.test(value.password)) {
+    errors = {};
+  } else {
+    errors = { password: true };
+  }
+
+  return errors;
 }
 
 export default function RegisterPage(props) {
@@ -79,24 +96,20 @@ export default function RegisterPage(props) {
         setError({ status: false });
       }, 5000);
     }
-  }, [error, userData]);
+  }, [error]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    validation(userData);
-    // if (userData.username.length < 4) {
-    //   return setError({ username: true });
-    // }
-    // if (userData.email) {
-    //   return setError({ email: true });
-    // }
-    // if (userData.password.length < 8) {
-    //   return setError({ password: true });
-    // }
-    // if (userData.pass_validation !== userData.password) {
-    //   return setError({ pass_validation: true });
-    // }
+    setError(validation(userData));
+    console.log(validation(userData));
+    let errors = validation(userData);
+    if (Object.keys(errors).length > 0) return;
+
+    if (userData.pass_validation !== userData.password) {
+      return setError({ pass_validation: true });
+    }
+    console.log("hi");
 
     // try {
     //   await axios.post(
@@ -156,8 +169,8 @@ export default function RegisterPage(props) {
         />
         {error.username && (
           <small>
-            El nombre de usuario debe tener un mínimo de 4 caracteres y no debe
-            contener signos especiales como @, #, $, |, ¡, !, etc...
+            El nombre de usuario debe de tener un rango de 8 a 32 caracteres
+            alfanuméricos y/o guiones.
           </small>
         )}
 
@@ -173,7 +186,9 @@ export default function RegisterPage(props) {
           required
         />
         {error.email && (
-          <small>El correo debe de tener un mínimo de 10 caracteres</small>
+          <small>
+            Debes ingresar un correo válido de como mínimo 15 caracteres.
+          </small>
         )}
 
         <InputLabel htmlFor="password">Inserta una contraseña</InputLabel>
@@ -197,7 +212,10 @@ export default function RegisterPage(props) {
           }
         />
         {error.password && (
-          <small>La contraseña debe de tener un mínimo de 8 caracteres </small>
+          <small>
+            La contraseña debe de tener un rango de 8 a 32 caracteres, puedes
+            incluir signos especiales y espacios.
+          </small>
         )}
 
         <InputLabel htmlFor="pass_validation">Repite tu contraseña</InputLabel>
