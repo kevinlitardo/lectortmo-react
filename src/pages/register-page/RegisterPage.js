@@ -10,6 +10,8 @@ import CloseIcon from "@material-ui/icons/Close";
 import { makeStyles } from "@material-ui/core/styles";
 
 import "./RegisterPage.css";
+import { Link } from "react-router-dom";
+import { Height } from "@material-ui/icons";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -31,6 +33,17 @@ const useStyles = makeStyles(() => ({
     },
     "& small": {
       color: "#bd362f",
+    },
+    "& p": {
+      color: "#929a9e",
+      fontSize: "small",
+      display: "inline-block",
+      width: "auto",
+      height: "auto",
+      margin: "3px 0",
+    },
+    "& p > a": {
+      color: "#2957ba",
     },
   },
 }));
@@ -111,38 +124,38 @@ export default function RegisterPage(props) {
     }
     console.log("hi");
 
-    // try {
-    //   await axios.post(
-    //     "https://lectortmo-api.herokuapp.com/user/register",
-    //     // "http://localhost:4000/user/register",
-    //     {
-    //       username: userData.username,
-    //       email: userData.email,
-    //       password: userData.password,
-    //     }
-    //   );
+    try {
+      await axios.post(
+        "https://lectortmo-api.herokuapp.com/user/register",
+        // "http://localhost:4000/user/register",
+        {
+          username: userData.username,
+          email: userData.email,
+          password: userData.password,
+        }
+      );
 
-    //   setUserData({
-    //     showPassword: false,
-    //     showPassValidation: false,
-    //     username: "",
-    //     email: "",
-    //     password: "",
-    //     pass_validation: "",
-    //   });
+      setUserData({
+        showPassword: false,
+        showPassValidation: false,
+        username: "",
+        email: "",
+        password: "",
+        pass_validation: "",
+      });
 
-    //   props.history.push("/login");
-    // } catch (err) {
-    //   window.scroll({ top: 0, behavior: "smooth" });
-    //   setError({
-    //     status: true,
-    //     error: err.response.data,
-    //   });
-    //   setUserData({
-    //     showPassword: false,
-    //     showPassValidation: false,
-    //   });
-    // }
+      props.history.push("/login");
+    } catch (err) {
+      window.scroll({ top: 0, behavior: "smooth" });
+      setError({
+        status: true,
+        error: err.response.data,
+      });
+      setUserData({
+        showPassword: false,
+        showPassValidation: false,
+      });
+    }
   };
 
   return (
@@ -173,7 +186,6 @@ export default function RegisterPage(props) {
             alfanuméricos y/o guiones.
           </small>
         )}
-
         <InputLabel htmlFor="email">Inserta un correo</InputLabel>
         <Input
           id="email"
@@ -185,12 +197,7 @@ export default function RegisterPage(props) {
           fullWidth
           required
         />
-        {error.email && (
-          <small>
-            Debes ingresar un correo válido de como mínimo 15 caracteres.
-          </small>
-        )}
-
+        {error.email && <small>Debes ingresar un correo válido.</small>}
         <InputLabel htmlFor="password">Inserta una contraseña</InputLabel>
         <Input
           id="password"
@@ -217,7 +224,6 @@ export default function RegisterPage(props) {
             incluir signos especiales y espacios.
           </small>
         )}
-
         <InputLabel htmlFor="pass_validation">Repite tu contraseña</InputLabel>
         <Input
           id="pass_validation"
@@ -250,7 +256,9 @@ export default function RegisterPage(props) {
         {error.pass_validation && (
           <small>Las contraseñas deben coincidir</small>
         )}
-
+        <p>
+          ¿ Ya estas registrado ? <Link to="/login">Ingresa</Link>
+        </p>
         <Button
           variant="contained"
           className="loginPage__loginBtn"

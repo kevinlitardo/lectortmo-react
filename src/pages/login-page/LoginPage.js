@@ -11,6 +11,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import { makeStyles } from "@material-ui/core/styles";
 
 import "./LoginPage.css";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -29,6 +30,17 @@ const useStyles = makeStyles(() => ({
     },
     "& .MuiSvgIcon-root": {
       color: "#929a9e",
+    },
+    "& p": {
+      color: "#929a9e",
+      fontSize: "small",
+      display: "inline-block",
+      width: "auto",
+      height: "auto",
+      margin: "3px 0",
+    },
+    "& p > a": {
+      color: "#2957ba",
     },
   },
 }));
@@ -149,6 +161,10 @@ export default function LoginPage(props) {
             </InputAdornment>
           }
         />
+        <p>
+          ¿ No estas registrado aún ? <Link to="/register">Registrate</Link>
+        </p>
+
         <Button
           variant="contained"
           className="loginPage__loginBtn"
