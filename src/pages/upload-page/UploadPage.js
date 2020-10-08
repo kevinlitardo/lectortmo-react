@@ -30,27 +30,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const tags = [
-  "Ecchi",
-  "Romance",
-  "Ciencia Ficción",
-  "d",
-  "e",
-  "f",
-  "g",
-  "h",
-  "i",
-  "j",
-  "k",
-  "l",
-  "m",
-  "n",
-  "o",
-  "p",
-  "q",
-  "r",
-  "s",
-];
+const tags = ["Ecchi", "Romance", "Ciencia Ficción"];
 
 export default function UploadPage() {
   const classes = useStyles();
@@ -92,7 +72,7 @@ export default function UploadPage() {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "https://lectortmo-api.herokuapp.com/lectortmo-api/manhwas/upload",
+        `https://lectortmo-api.herokuapp.com/${formData.type.toLowerCase()}s/upload`,
         {
           title: formData.title,
           description: formData.description,

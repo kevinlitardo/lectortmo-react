@@ -1,7 +1,7 @@
 import React from "react";
 
 import ListsHandler from "./list-handler/ListsHandler";
-import ItemsSectionsContainer from "./my-sections-container/ItemsSectionsContainer";
+import ItemsSectionsContainer from "../../components/sections-container/ItemsSectionsContainer";
 
 import "./MyListsContainer.css";
 

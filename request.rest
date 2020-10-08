@@ -1,4 +1,4 @@
-GET https://lectortmo-api.herokuapp.com/mangas
+GET https://lectortmo-api.herokuapp.com/manhwas
 
 ###
 
@@ -6,8 +6,8 @@ POST https://lectortmo-api.herokuapp.com/user/login
 Content-Type: application/json
 
 {
-  "email": "test@test.com",
-  "password": "12345678"
+  "email": "ricqrdo@ricqrdo.com",
+  "password": "trestres"
 }
 
 ###

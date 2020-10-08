@@ -7,6 +7,7 @@ export function UserProvider(props) {
   const [user, setUser] = useState({
     username: null,
     id: null,
+    userIMG: null,
   });
 
   return (

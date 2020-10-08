@@ -1,0 +1,50 @@
+.userprofile__container {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.userProfile__data {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 100%;
+}
+
+.userProfile__data > span {
+  height: 35px;
+  width: 100%;
+  color: #f1f1f1;
+  background: #2957ba;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: x-large;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.userProfile__data > img {
+  margin: 20px 0;
+  width: 100%;
+  height: auto;
+}
+
+.userProfile__data > h2 {
+  height: auto;
+  width: 100%;
+  font-size: xx-large;
+  font-weight: normal;
+  color: #f1f1f1;
+  margin-bottom: 20px;
+}
+
+.userprofile__container > button {
+  width: 100%;
+  background: #f89406;
+  color: #000;
+  margin-top: 20px;
+  font-size: medium;
+}

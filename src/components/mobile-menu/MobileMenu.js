@@ -72,18 +72,21 @@ const MobileMenu = ({ hideMenu }) => {
       <div className="mobileMenu__body">
         {showMenu && (
           <div className="mobileMenu__userMenu">
-            <a href="@">
+            <Link to={`/${user.username}`} onClick={hideMenu}>
               <AccountBoxIcon /> Mi perfil
-            </a>
-            <a href="@">
+            </Link>
+            {/* <Link to="/user/ricqrdo">
+              <AccountBoxIcon /> Mi perfil
+            </Link> */}
+            <Link to="/">
               <FormatListBulletedIcon /> Mis listas
-            </a>
-            <a href="@">
+            </Link>
+            <Link to="/">
               <GroupIcon /> Mis grupos
-            </a>
-            <a href="@">
+            </Link>
+            <Link to="/">
               <ExitToAppIcon /> Desconectar
-            </a>
+            </Link>
           </div>
         )}
 
@@ -106,10 +109,10 @@ const MobileMenu = ({ hideMenu }) => {
         )}
 
         <div className="mobileMenu__sections">
-          <a href="@">Biblioteca</a>
-          <a href="@">Grupos</a>
-          <a href="@">Listas</a>
-          <a href="@">Foro</a>
+          <Link to="/">Biblioteca</Link>
+          <Link to="/">Grupos</Link>
+          <Link to="/">Listas</Link>
+          <Link to="/">Foro</Link>
         </div>
       </div>
     </div>,

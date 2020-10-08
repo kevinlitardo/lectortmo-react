@@ -90,7 +90,7 @@
 }
 
 .mobileMenu__body {
-  padding: 20px;
+  padding: 0 20px 20px;
 }
 
 .mobileMenu__body > .mobileMenu__userMenu {
@@ -150,6 +150,7 @@
   width: 100%;
   height: auto;
   margin-bottom: 20px;
+  margin-top: 20px;
   padding: 7px 10px;
   border-radius: 2px;
   background: #f1f1f1;

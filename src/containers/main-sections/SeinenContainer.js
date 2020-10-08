@@ -16,7 +16,8 @@ export default function MangasContainer() {
     const fetcher = async () => {
       try {
         const req = await axios.get(
-          "https://lectortmo-api.herokuapp.com/manhwas"
+          // "https://lectortmo-api.herokuapp.com/manhwas"
+          "http://localhost:4000/manhwas"
         );
         setData(req.data);
         setLoading(false);

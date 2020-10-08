@@ -11,7 +11,6 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import "./RegisterPage.css";
 import { Link } from "react-router-dom";
-import { Height } from "@material-ui/icons";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -125,15 +124,11 @@ export default function RegisterPage(props) {
     console.log("hi");
 
     try {
-      await axios.post(
-        "https://lectortmo-api.herokuapp.com/user/register",
-        // "http://localhost:4000/user/register",
-        {
-          username: userData.username,
-          email: userData.email,
-          password: userData.password,
-        }
-      );
+      await axios.post("https://lectortmo-api.herokuapp.com/user/register", {
+        username: userData.username,
+        email: userData.email,
+        password: userData.password,
+      });
 
       setUserData({
         showPassword: false,

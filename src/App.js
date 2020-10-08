@@ -14,6 +14,7 @@ import RegisterPage from "./pages/register-page/RegisterPage";
 import FilePage from "./pages/file-page/FilePage";
 
 import "./App.css";
+import UserProfile from "./pages/user-profile/UserProfile";
 
 function App() {
   const { user } = useContext(UserContext);
@@ -30,12 +31,13 @@ function App() {
         <Route path="/" exact component={MyListsContainer} />
         <Route path="/" exact component={TrendingSectionHandler} />
         <Route path="/" exact component={LastNewsContainer} />
-        <Route path="/upload">
-          {user.username ? <UploadPage /> : <Redirect to="/" />}
-        </Route>
         <Route path="/login" component={LoginPage} />
         <Route path="/register" component={RegisterPage} />
         <Route path="/:type/:title" component={FilePage} />
+        <Route path="/:username" component={UserProfile} />
+        <Route path="/upload">
+          {user.username ? <UploadPage /> : <Redirect to="/" />}
+        </Route>
       </div>
     </Router>
   );
