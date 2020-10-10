@@ -114,7 +114,6 @@ export default function RegisterPage(props) {
     e.preventDefault();
 
     setError(validation(userData));
-    console.log(validation(userData));
     let errors = validation(userData);
     if (Object.keys(errors).length > 0) return;
 

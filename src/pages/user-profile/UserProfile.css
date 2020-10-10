@@ -4,6 +4,7 @@
   height: auto;
   width: 100%;
   padding: 20px 0;
+  position: relative;
 }
 
 .userProfile__data {
@@ -47,4 +48,8 @@
   color: #000;
   margin-top: 20px;
   font-size: medium;
+}
+
+.userprofile__container > .MuiButton-contained:hover {
+  background: #d17c05;
 }
