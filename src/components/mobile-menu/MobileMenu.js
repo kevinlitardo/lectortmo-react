@@ -75,9 +75,6 @@ const MobileMenu = ({ hideMenu }) => {
             <Link to={`/${user.username}`} onClick={hideMenu}>
               <AccountBoxIcon /> Mi perfil
             </Link>
-            {/* <Link to="/user/ricqrdo">
-              <AccountBoxIcon /> Mi perfil
-            </Link> */}
             <Link to="/">
               <FormatListBulletedIcon /> Mis listas
             </Link>

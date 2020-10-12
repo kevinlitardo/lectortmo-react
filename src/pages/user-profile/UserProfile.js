@@ -30,7 +30,7 @@ export default function UserProfile() {
         <span className="data--badget">Usuario</span>
         <img
           // src={user.userIMG ? user.userIMG : "./public/default-user.png"}
-          src={defaultUser}
+          src={user.userIMG ? user.userIMG : defaultUser}
           // alt={user.username}
           alt="username"
           />
@@ -39,10 +39,10 @@ export default function UserProfile() {
       </div>
 
       <ItemsSectionsContainer />
+      {editModal && <UserProfileEditForm closeModal={closeModal}/>}
       <Button variant="contained" startIcon={<EditIcon />} onClick={()=>setEditModal(true)} className='edit_button'>
         Editar Perfil
       </Button>
-          {editModal && <UserProfileEditForm closeModal={closeModal}/>}
     </div>
   );
 }

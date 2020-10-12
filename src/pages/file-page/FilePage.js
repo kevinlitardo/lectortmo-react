@@ -25,11 +25,7 @@ export default function FilePage(props) {
 
   useEffect(() => {
     const fetcher = async () => {
-      // const res = await axios
-      //   .get
-      //   `https://lectortmo-api.herokuapp.com/${type}/${title}`
-      //   ();
-      const res = await axios.get(`http://localhost:4000/${type}/${title}`);
+      const res = await axios.get(`https://lectortmo-api.herokuapp.com/${type}/${title}`);
       setFile(res.data);
       setLoading(false);
     };

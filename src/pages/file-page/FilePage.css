@@ -197,11 +197,12 @@
   width: 100%;
   height: auto;
   max-height: calc(45px * 10 + 5px + 40px);
-  padding: 0 5px;
+  padding: 5px 5px 0;
+  background: #343a40;
 }
 
 .filePage__caps > .filePage__caps--container > .cap {
-  background: #343a40;
+  background: #222;
   margin-bottom: 5px;
   display: flex;
   align-items: center;

@@ -33,8 +33,11 @@ function App() {
         <Route path="/" exact component={LastNewsContainer} />
         <Route path="/login" component={LoginPage} />
         <Route path="/register" component={RegisterPage} />
-        <Route path="/:type/:title" component={FilePage} />
-        <Route path="/:username" component={UserProfile} />
+        <Route path="/:type/:title" exact component={FilePage} />
+        <Route path="/:username" exact component={UserProfile} />
+        {/* <Route path="/profile/:username">
+          {user.username ? <UserProfile /> : <Redirect to="/" />}
+        </Route> */}
         <Route path="/upload">
           {user.username ? <UploadPage /> : <Redirect to="/" />}
         </Route>
