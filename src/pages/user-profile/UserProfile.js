@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react";
+import axios from "axios";
 
 import { UserContext } from "../../hooks/userContext";
 import ItemsSectionsContainer from "../../components/sections-container/ItemsSectionsContainer";
@@ -15,6 +16,9 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import IconButton from "@material-ui/core/IconButton";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import CloseIcon from "@material-ui/icons/Close";
+
+const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dy14mattw/image/upload'
+const CLOUDINARY_UPLOAD_PRESET = 'l2g86ymv'
 
 export default function UserProfile() {
   const { user } = useContext(UserContext);
@@ -104,11 +108,16 @@ export function UserProfileEditForm({closeModal}) {
     new_password: "",
     password: "",
   })
+  // const [file, setFile] = useState({
+  //   file: {},
+  //   upload_preset: CLOUDINARY_UPLOAD_PRESET
+  // })
   const [editForm, setEditForm] = useState({
     showNewPassword: false,
     showPassword: false,
     username: '',
     email: '',
+    image: '',
     new_password: '',
     password: "",
   })
@@ -125,6 +134,10 @@ export function UserProfileEditForm({closeModal}) {
     setEditForm({ ...editForm, [e.target.name]: e.target.value });
   };
 
+  // const handleFileChange = (e)=>{
+  //   setFile(e.target.files[0])
+  // }
+
   const handleClickShowPassword = () => {
     setEditForm({ ...editForm, showPassword: !editForm.showPassword });
   };
@@ -134,11 +147,50 @@ export function UserProfileEditForm({closeModal}) {
   };
 
   const handleSubmit = async (e) => {
-    e.preentDefault();
+    e.preventDefault();
 
-    setError(validation(editForm));
-    let errors = validation(editForm);
-    if (Object.keys(errors).length > 0) return;
+    console.log(e.target.files)
+
+    // const file = e.target.files[0];
+
+    // const formData = new FormData();
+    // formData.append("file", file);
+    // formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
+
+    // try {
+    //   const res = await axios.post(CLOUDINARY_URL, formData, {
+    //     headers: {
+    //       "Content-type": "multipart/form-data",
+    //     },
+    //   });
+    //   console.log(res.data.secure_url)
+    //   setEditForm({ ...editForm, image: res.data.secure_url});
+    // } catch (error) {
+    //   console.log(error)
+    // }
+
+    // setError(validation(editForm));
+    // let errors = validation(editForm);
+    // if (Object.keys(errors).length > 0) return;
+
+    // try {
+    //   const res = await axios.patch(
+    //     // "https://lectortmo-api.herokuapp.com/user/update",
+    //     "http://localhost:4000/user/update",
+    //     {
+    //       username: editForm.username,
+    //       email: editForm.email,
+    //       image: editForm.image,
+    //       new_password: editForm.new_password,
+    //       password: editForm.password,
+    //     }
+    //   );
+
+    //   console.log(res.data);
+    // } catch (err) {
+    //   console.log(err)
+    // }
+
 
     // try {
       
@@ -181,14 +233,14 @@ export function UserProfileEditForm({closeModal}) {
         </div>
       )}
         <form className={classes.root} onSubmit={handleSubmit}>
-          <InputLabel htmlFor="username">Nombre de usuario</InputLabel>
+          <InputLabel htmlFor="username">Nuevo nombre de usuario</InputLabel>
           <Input
             id="username"
             variant="filled"
             name="username"
             type="text"
-            // value={userData.email}
-            // onChange={handleChange}
+            value={editForm.username}
+            onChange={handleChange}
             fullWidth
           />
           {error.username && (
@@ -198,14 +250,14 @@ export function UserProfileEditForm({closeModal}) {
           </small>
           )}
 
-          <InputLabel htmlFor="email">Direccion de correo</InputLabel>
+          <InputLabel htmlFor="email">Nueva direccion de correo</InputLabel>
           <Input
             id="email"
             variant="filled"
             name="email"
             type="email"
-            // value={userData.email}
-            // onChange={handleChange}
+            value={editForm.email}
+            onChange={handleChange}
             fullWidth
           />
           {error.email && (
@@ -215,7 +267,7 @@ export function UserProfileEditForm({closeModal}) {
           )}
 
           <InputLabel htmlFor="image">Foto de perfil</InputLabel>
-          <input accept="image/*" id="image" name="image" type="file" />
+          <input accept="image/*" id="image" name="image" type="file"/>
 
           <InputLabel htmlFor="new_password">Nueva Contraseña (No requerido)</InputLabel>
           <Input
