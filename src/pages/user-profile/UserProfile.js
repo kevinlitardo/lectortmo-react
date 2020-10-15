@@ -17,9 +17,6 @@ import IconButton from "@material-ui/core/IconButton";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import CloseIcon from "@material-ui/icons/Close";
 
-const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dy14mattw/image/upload'
-const CLOUDINARY_UPLOAD_PRESET = 'l2g86ymv'
-
 export default function UserProfile() {
   const { user } = useContext(UserContext);
   const [editModal, setEditModal] = useState(false)
@@ -39,7 +36,7 @@ export default function UserProfile() {
           alt="username"
           />
         {/* <h2>{user.username}</h2> */}
-        <h2>username</h2>
+        <h2>{user.username}</h2>
       </div>
 
       <ItemsSectionsContainer />
@@ -98,20 +95,19 @@ function validation(value) {
 
   return errors;
 }
+
 export function UserProfileEditForm({closeModal}) {
+  const { user, setUser } = useContext(UserContext);
   const classes = useStyles();
   const [error, setError] = useState({
     status: false,
     error: '',
     username: "",
     email: "",
+    image: '',
     new_password: "",
     password: "",
   })
-  // const [file, setFile] = useState({
-  //   file: {},
-  //   upload_preset: CLOUDINARY_UPLOAD_PRESET
-  // })
   const [editForm, setEditForm] = useState({
     showNewPassword: false,
     showPassword: false,
@@ -134,9 +130,25 @@ export function UserProfileEditForm({closeModal}) {
     setEditForm({ ...editForm, [e.target.name]: e.target.value });
   };
 
-  // const handleFileChange = (e)=>{
-  //   setFile(e.target.files[0])
-  // }
+  const handleFileChange = (e)=>{
+    const file = e.target.files[0]
+    const reader= new FileReader()
+    reader.readAsDataURL(file)
+    reader.onloadend = ()=>{
+      setEditForm({...editForm, image: reader.result})
+    }
+  }
+
+  const uploadImage = async (based64EncodedImage)=>{
+    try {
+      await axios.patch('http://localhost:4000/user/updateImage',
+        {data: JSON.stringify(based64EncodedImage), id: user.id},
+        {headers: {"Content-type": "application/json", },
+      });
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   const handleClickShowPassword = () => {
     setEditForm({ ...editForm, showPassword: !editForm.showPassword });
@@ -149,68 +161,58 @@ export function UserProfileEditForm({closeModal}) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(e.target.files)
+    setError(validation(editForm));
+    let errors = validation(editForm);
+    if (Object.keys(errors).length > 0) return;
 
-    // const file = e.target.files[0];
+    try {
+      await axios.patch(
+        // "https://lectortmo-api.herokuapp.com/user/update",
+        "http://localhost:4000/user/update",
+        {
+          username: editForm.username,
+          email: editForm.email,
+          new_password: editForm.new_password,
+          password: editForm.password,
+          id: user.id
+        }
+      );
+      uploadImage(editForm.image)
 
-    // const formData = new FormData();
-    // formData.append("file", file);
-    // formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
+      setEditForm({
+        showPassword: false,
+        username: '',
+        email: '',
+        newPassword: '',
+        password: "",
+      });
+    } catch (err) {
+      setError({
+        status: true,
+        error: err.data,
+      });
+      setEditForm({
+        showPassword: false,
+      });
+    }
 
-    // try {
-    //   const res = await axios.post(CLOUDINARY_URL, formData, {
-    //     headers: {
-    //       "Content-type": "multipart/form-data",
-    //     },
-    //   });
-    //   console.log(res.data.secure_url)
-    //   setEditForm({ ...editForm, image: res.data.secure_url});
-    // } catch (error) {
-    //   console.log(error)
-    // }
-
-    // setError(validation(editForm));
-    // let errors = validation(editForm);
-    // if (Object.keys(errors).length > 0) return;
-
-    // try {
-    //   const res = await axios.patch(
-    //     // "https://lectortmo-api.herokuapp.com/user/update",
-    //     "http://localhost:4000/user/update",
-    //     {
-    //       username: editForm.username,
-    //       email: editForm.email,
-    //       image: editForm.image,
-    //       new_password: editForm.new_password,
-    //       password: editForm.password,
-    //     }
-    //   );
-
-    //   console.log(res.data);
-    // } catch (err) {
-    //   console.log(err)
-    // }
-
-
-    // try {
-      
-
-    //   setEditForm({
-    //     showPassword: false,
-    //     username: '',
-    //     email: '',
-    //     newPassword: '',
-    //     password: "",
-    //   });
-    // } catch (err) {
-    //   setError({
-    //     status: true,
-    //     error: err.response.data,
-    //   });
-    //   setEditForm({
-    //     showPassword: false,
-    //   });
-    // }
+    try {
+      const res = await axios.post(
+        "https://lectortmo-api.herokuapp.com/user/login",
+        // "http://localhost:4000/user/login",
+        {
+          email: editForm.email,
+          password: editForm.password,
+        }
+      )
+      setUser({
+        username: res.data[0],
+        id: res.data[1],
+        userIMG: res.data[2]
+      })
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -267,7 +269,7 @@ export function UserProfileEditForm({closeModal}) {
           )}
 
           <InputLabel htmlFor="image">Foto de perfil</InputLabel>
-          <input accept="image/*" id="image" name="image" type="file"/>
+          <input id="image" name="image" type="file" onChange={handleFileChange} />
 
           <InputLabel htmlFor="new_password">Nueva Contraseña (No requerido)</InputLabel>
           <Input
@@ -316,6 +318,12 @@ export function UserProfileEditForm({closeModal}) {
               </InputAdornment>
             }
           />
+          {error.new_password && (
+          <small>
+            La contraseña debe de tener un rango de 8 a 32 caracteres, puedes
+            incluir signos especiales y espacios.
+          </small>
+          )}
 
           <Button variant="contained"
           type='submit'>
