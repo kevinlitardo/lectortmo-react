@@ -31,11 +31,11 @@ function App() {
         <Route path="/" exact component={MyListsContainer} />
         <Route path="/" exact component={TrendingSectionHandler} />
         <Route path="/" exact component={LastNewsContainer} />
-        <Route path="/login" component={LoginPage} />
-        <Route path="/register" component={RegisterPage} />
-        <Route path="/:type/:title" exact component={FilePage} />
-        <Route path="/:username" exact component={UserProfile} />
-        {/* <Route path="/profile/:username">
+        <Route path="/login" exact component={LoginPage} />
+        <Route path="/register" exact component={RegisterPage} />
+        <Route path="/:type/:title" component={FilePage} />
+        <Route path="/:username" component={UserProfile} />
+        {/* <Route path="/:username">
           {user.username ? <UserProfile /> : <Redirect to="/" />}
         </Route> */}
         <Route path="/upload">

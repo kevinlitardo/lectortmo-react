@@ -115,6 +115,7 @@ export function UserProfileEditForm({closeModal}) {
     username: '',
     email: '',
     image: '',
+    new_email: '',
     new_password: '',
     password: "",
   })
@@ -155,6 +156,7 @@ export function UserProfileEditForm({closeModal}) {
     let errors = validation(editForm);
     if (Object.keys(errors).length > 0) return;
 
+    //Verification login
     try {
       await axios.post(
         // "https://lectortmo-api.herokuapp.com/user/login",
@@ -168,9 +170,10 @@ export function UserProfileEditForm({closeModal}) {
       console.log(err.response.data)
       return
     }
-    console.log('step 1')
+    
+    //Update request
     try {
-      await axios.patch(
+      const res = await axios.patch(
         // "https://lectortmo-api.herokuapp.com/user/update",
         "http://localhost:4000/user/update",
         {
@@ -181,7 +184,8 @@ export function UserProfileEditForm({closeModal}) {
           id: user.id
         }
       );
-
+      
+      console.log(res)
     } catch (err) {
       setError({
         status: true,
@@ -192,14 +196,17 @@ export function UserProfileEditForm({closeModal}) {
       });
       return
     } 
-    console.log('step 2')
+    
+    //Login to get new values
+    const email= editForm.new_email !== '' ? editForm.new_email : editForm.email
+    const password= editForm.new_password !== '' ? editForm.new_password : editForm.password
     try {
       const res = await axios.post(
         // "https://lectortmo-api.herokuapp.com/user/login",
         "http://localhost:4000/user/login",
         {
-          email: editForm.new_email !== '' ? editForm.new_email : editForm.email,
-          password: editForm.new_password !== '' ? editForm.new_password : editForm.password,
+          email: email,
+          password: password
         }
       )
       setUser({
@@ -211,7 +218,8 @@ export function UserProfileEditForm({closeModal}) {
         console.log(err.response.data)
         return 
     }
-    console.log('step 3')
+
+    //Clear inputs values
     setEditForm({
       showNewPassword: false,
       showPassword: false,
