@@ -31,7 +31,7 @@ export default function UserProfile() {
         <span className="data--badget">Usuario</span>
         <img
           // src={user.userIMG ? user.userIMG : "./public/default-user.png"}
-          src={user.userIMG ? user.userIMG : defaultUser}
+          src={user.userIMG !== '' ? user.userIMG : defaultUser}
           // alt={user.username}
           alt="username"
           />
@@ -103,10 +103,11 @@ export function UserProfileEditForm({closeModal}) {
     status: false,
     error: '',
     username: "",
-    email: "",
     image: '',
-    new_password: "",
+    email: "",
+    new_email: '',
     password: "",
+    new_password: "",
   })
   const [editForm, setEditForm] = useState({
     showNewPassword: false,
@@ -139,17 +140,6 @@ export function UserProfileEditForm({closeModal}) {
     }
   }
 
-  const uploadImage = async (based64EncodedImage)=>{
-    try {
-      await axios.patch('http://localhost:4000/user/updateImage',
-        {data: JSON.stringify(based64EncodedImage), id: user.id},
-        {headers: {"Content-type": "application/json", },
-      });
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
   const handleClickShowPassword = () => {
     setEditForm({ ...editForm, showPassword: !editForm.showPassword });
   };
@@ -166,53 +156,72 @@ export function UserProfileEditForm({closeModal}) {
     if (Object.keys(errors).length > 0) return;
 
     try {
-      await axios.patch(
-        // "https://lectortmo-api.herokuapp.com/user/update",
-        "http://localhost:4000/user/update",
-        {
-          username: editForm.username,
-          email: editForm.email,
-          new_password: editForm.new_password,
-          password: editForm.password,
-          id: user.id
-        }
-      );
-      uploadImage(editForm.image)
-
-      setEditForm({
-        showPassword: false,
-        username: '',
-        email: '',
-        newPassword: '',
-        password: "",
-      });
-    } catch (err) {
-      setError({
-        status: true,
-        error: err.data,
-      });
-      setEditForm({
-        showPassword: false,
-      });
-    }
-
-    try {
-      const res = await axios.post(
-        "https://lectortmo-api.herokuapp.com/user/login",
-        // "http://localhost:4000/user/login",
+      await axios.post(
+        // "https://lectortmo-api.herokuapp.com/user/login",
+        "http://localhost:4000/user/login",
         {
           email: editForm.email,
           password: editForm.password,
         }
       )
+    } catch (err) {
+      console.log(err.response.data)
+      return
+    }
+    console.log('step 1')
+    try {
+      await axios.patch(
+        // "https://lectortmo-api.herokuapp.com/user/update",
+        "http://localhost:4000/user/update",
+        {
+          username: editForm.username,
+          new_email: editForm.new_email,
+          new_password: editForm.new_password,
+          image: editForm.image,
+          id: user.id
+        }
+      );
+
+    } catch (err) {
+      setError({
+        status: true,
+        error: err.response.data,
+      });
+      setEditForm({
+        showPassword: false,
+      });
+      return
+    } 
+    console.log('step 2')
+    try {
+      const res = await axios.post(
+        // "https://lectortmo-api.herokuapp.com/user/login",
+        "http://localhost:4000/user/login",
+        {
+          email: editForm.new_email !== '' ? editForm.new_email : editForm.email,
+          password: editForm.new_password !== '' ? editForm.new_password : editForm.password,
+        }
+      )
       setUser({
-        username: res.data[0],
-        id: res.data[1],
-        userIMG: res.data[2]
+        username: res.data.username,
+        id: res.data.id,
+        userIMG: res.data.userIMG
       })
     } catch (err) {
-      console.log(err);
+        console.log(err.response.data)
+        return 
     }
+    console.log('step 3')
+    setEditForm({
+      showNewPassword: false,
+      showPassword: false,
+      username: '',
+      email: '',
+      image: '',
+      new_password: '',
+      new_email: '',
+      password: "",
+    });
   };
 
   return (
@@ -235,7 +244,7 @@ export function UserProfileEditForm({closeModal}) {
         </div>
       )}
         <form className={classes.root} onSubmit={handleSubmit}>
-          <InputLabel htmlFor="username">Nuevo nombre de usuario</InputLabel>
+          <InputLabel htmlFor="username">Nuevo nombre de usuario (Opcional)</InputLabel>
           <Input
             id="username"
             variant="filled"
@@ -252,13 +261,13 @@ export function UserProfileEditForm({closeModal}) {
           </small>
           )}
 
-          <InputLabel htmlFor="email">Nueva direccion de correo</InputLabel>
+          <InputLabel htmlFor="new_email">Nueva direccion de correo (Opcional)</InputLabel>
           <Input
-            id="email"
+            id="new_email"
             variant="filled"
-            name="email"
+            name="new_email"
             type="email"
-            value={editForm.email}
+            value={editForm.new_email}
             onChange={handleChange}
             fullWidth
           />
@@ -269,9 +278,9 @@ export function UserProfileEditForm({closeModal}) {
           )}
 
           <InputLabel htmlFor="image">Foto de perfil</InputLabel>
-          <input id="image" name="image" type="file" onChange={handleFileChange} />
+          <input id="image" name="image" type="file" onChange={handleFileChange}/>
 
-          <InputLabel htmlFor="new_password">Nueva Contraseña (No requerido)</InputLabel>
+          <InputLabel htmlFor="new_password">Nueva Contraseña (Opcional)</InputLabel>
           <Input
             id="new_password"
             variant="filled"
@@ -298,6 +307,23 @@ export function UserProfileEditForm({closeModal}) {
           </small>
           )}
 
+<InputLabel htmlFor="email">Direccion de Correo</InputLabel>
+          <Input
+            id="email"
+            variant="filled"
+            name="email"
+            type="email"
+            value={editForm.email}
+            onChange={handleChange}
+            fullWidth
+            required
+          />
+          {error.email && (
+          <small>
+            Debes ingresar un correo válido.
+          </small>
+          )}
+
           <InputLabel htmlFor="password">Contraseña</InputLabel>
           <Input
             id="password"
@@ -306,6 +332,7 @@ export function UserProfileEditForm({closeModal}) {
             type={editForm.showPassword ? "text" : "password"}
             value={editForm.password}
             onChange={handleChange}
+            required
             endAdornment={
               <InputAdornment position="end">
                 <IconButton

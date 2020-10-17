@@ -83,8 +83,8 @@ export default function LoginPage(props) {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "https://lectortmo-api.herokuapp.com/user/login",
-        // "http://localhost:4000/user/login",
+        // "https://lectortmo-api.herokuapp.com/user/login",
+        "http://localhost:4000/user/login",
         {
           email: userData.email,
           password: userData.password,
@@ -92,9 +92,9 @@ export default function LoginPage(props) {
       );
       console.log(res.data);
       setUser({
-        username: res.data[0],
-        id: res.data[1],
-        userIMG: res.data[2]
+        username: res.data.username,
+        id: res.data.id,
+        userIMG: res.data.userIMG
       });
 
       setUserData({
