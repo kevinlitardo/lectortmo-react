@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { BrowserRouter as Router, Redirect, Route } from "react-router-dom";
+import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
 
 import { UserContext } from "./hooks/userContext";
 import Header from "./components/header/Header";
@@ -31,16 +31,17 @@ function App() {
         <Route path="/" exact component={MyListsContainer} />
         <Route path="/" exact component={TrendingSectionHandler} />
         <Route path="/" exact component={LastNewsContainer} />
-        <Route path="/login" exact component={LoginPage} />
-        <Route path="/register" exact component={RegisterPage} />
-        <Route path="/:type/:title" component={FilePage} />
-        <Route path="/:username" component={UserProfile} />
-        {/* <Route path="/:username">
-          {user.username ? <UserProfile /> : <Redirect to="/" />}
-        </Route> */}
-        <Route path="/upload">
-          {user.username ? <UploadPage /> : <Redirect to="/" />}
-        </Route>
+        <Switch>
+          <Route path="/login" exact component={LoginPage} />
+          <Route path="/register" exact component={RegisterPage} />
+          <Route path="/upload" exact>
+            {user.username ? <UploadPage /> : <Redirect to="/" />}
+          </Route>
+          <Route path="/user/:username" exact strict>
+            {user.username ? <UserProfile /> : <Redirect to="/" />}
+          </Route>
+          <Route path="/:type/:title" strict exact component={FilePage} />
+        </Switch>
       </div>
     </Router>
   );

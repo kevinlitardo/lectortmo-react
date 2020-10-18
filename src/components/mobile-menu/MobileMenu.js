@@ -13,11 +13,12 @@ import GroupIcon from "@material-ui/icons/Group";
 import FormatListBulletedIcon from "@material-ui/icons/FormatListBulleted";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { Avatar } from "@material-ui/core";
+import axios from "axios";
 
 const mobileMenuContainer = document.getElementById("mobileMenu");
 
 const MobileMenu = ({ hideMenu }) => {
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const [showMenu, setShowMenu] = useState(false);
   const [logged, setLogged] = useState(true);
   let history = useHistory();
@@ -34,12 +35,28 @@ const MobileMenu = ({ hideMenu }) => {
     }
   };
 
+  const handleLogout = async () => {
+    try {
+      await axios.get('http://localhost:4000/user/logout')
+      setUser({
+        username: null,
+        id: null,
+        userIMG: null
+      })
+      history.push('/')
+      hideMenu()
+      
+    } catch (error) {
+      console.log(error.response.data)
+    }
+  };
+
   return createPortal(
     <div className="mobileMenu">
       <div className="mobileMenu__header">
         {user.username && (
           <div className="mobileMenu__userBtn">
-            <Avatar alt={`${user.usernama} avatar`} variant="rounded" />{" "}
+            <Avatar alt={`${user.usernama} avatar`} src={user.userIMG} variant="rounded" />
             <span>{user.username}</span>
             <button onClick={showUserMenu}>
               <PlayArrowIcon />
@@ -72,7 +89,7 @@ const MobileMenu = ({ hideMenu }) => {
       <div className="mobileMenu__body">
         {showMenu && (
           <div className="mobileMenu__userMenu">
-            <Link to={`/${user.username}`} onClick={hideMenu}>
+            <Link to={`/user/${user.username}`} onClick={hideMenu}>
               <AccountBoxIcon /> Mi perfil
             </Link>
             <Link to="/">
@@ -81,9 +98,9 @@ const MobileMenu = ({ hideMenu }) => {
             <Link to="/">
               <GroupIcon /> Mis grupos
             </Link>
-            <Link to="/">
+            <span onClick={handleLogout}>
               <ExitToAppIcon /> Desconectar
-            </Link>
+            </span>
           </div>
         )}
 

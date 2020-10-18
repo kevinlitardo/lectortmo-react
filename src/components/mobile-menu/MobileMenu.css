@@ -5,6 +5,7 @@
   width: 100%;
   height: 100vh;
   background: #222;
+  z-index: 999;
 }
 
 .mobileMenu__header {
@@ -103,7 +104,8 @@
   transition: 0.3s;
 }
 
-.mobileMenu__body > .mobileMenu__userMenu > a {
+.mobileMenu__body > .mobileMenu__userMenu > a,
+.mobileMenu__body > .mobileMenu__userMenu > span {
   font-size: larger;
   text-decoration: none;
   color: #929a9e;
@@ -117,7 +119,8 @@
   margin-right: 5px;
 }
 
-.mobileMenu__body > .mobileMenu__userMenu > a:hover {
+.mobileMenu__body > .mobileMenu__userMenu > a:hover,
+.mobileMenu__body > .mobileMenu__userMenu > span:hover {
   color: #f1f1f1;
   border-left: 3px solid #2957ba;
   padding-left: 10px;
