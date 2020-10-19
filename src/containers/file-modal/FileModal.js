@@ -58,6 +58,7 @@ const FileModal = ({ hideFile, props }) => {
         </div>
 
         <div className="fileModal__description">
+          <h4>Descripción</h4>
           <p>{props.description}</p>
         </div>
 

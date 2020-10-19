@@ -175,7 +175,8 @@
 }
 
 .fileModal__container > .fileModal__tags > h4,
-.fileModal__status > h4 {
+.fileModal__status > h4,
+.fileModal__description > h4 {
   color: #929a9e;
   font-size: large;
   font-weight: normal;

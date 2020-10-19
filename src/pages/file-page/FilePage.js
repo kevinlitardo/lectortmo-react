@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+import FileAddListItems from "../../components/file-add-list-items/FileAddListItems";
 import useColor from "../../hooks/useType";
 
 import "./FilePage.css";
@@ -16,7 +17,7 @@ import Loading from "../../components/loading/Loading";
 
 export default function FilePage(props) {
   const [loading, setLoading] = useState(true);
-  const [file, setFile] = useState([]);
+  const [file, setFile] = useState({});
   const [color, setColor] = useState("");
 
   const { typeColor, demographyColor } = useColor(file.type, file.demography);
@@ -29,11 +30,12 @@ export default function FilePage(props) {
       setFile(res.data);
       setLoading(false);
     };
-
+    
     fetcher();
-
+    
     file.status === "En progreso" ? setColor("#51a351") : setColor("#bd362f");
   }, [type, title, file.status]);
+  console.log(file)
 
   if (loading) {
     return <Loading />;
@@ -92,6 +94,7 @@ export default function FilePage(props) {
       </div>
 
       <div className="filePage__description">
+        <h4>Descripción</h4>
         <p>{file.description}</p>
       </div>
 
@@ -108,6 +111,11 @@ export default function FilePage(props) {
           <FiberManualRecordIcon style={{ color: `${color}` }} />
           {file.status}
         </span>
+      </div>
+
+      <div className="filePage__addListItems">
+        <h4>Agregar a</h4>
+        <FileAddListItems fileId={file._id}/>
       </div>
 
       <div className="filePage__caps">
