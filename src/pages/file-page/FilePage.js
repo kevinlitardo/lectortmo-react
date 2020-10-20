@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 
+import { UserContext } from "../../hooks/userContext";
 import FileAddListItems from "../../components/file-add-list-items/FileAddListItems";
 import useColor from "../../hooks/useType";
 
@@ -16,9 +17,11 @@ import LoaderButton from "../../components/loader-button/LoaderButton";
 import Loading from "../../components/loading/Loading";
 
 export default function FilePage(props) {
+  const {user} = useContext(UserContext)
   const [loading, setLoading] = useState(true);
   const [file, setFile] = useState({});
   const [color, setColor] = useState("");
+  const [prevList, setPrevList] = useState(null)
 
   const { typeColor, demographyColor } = useColor(file.type, file.demography);
   const type = props.match.params.type;
@@ -30,12 +33,20 @@ export default function FilePage(props) {
       setFile(res.data);
       setLoading(false);
     };
-    
     fetcher();
+
+    if(user.username){
+      const list = Object.keys(user.lists)
+      const arrays = Object.values(user.lists)
+      for (let i = 0; i < 6; i++) {
+        if(arrays[i].find(id => id === file._id)) {
+          setPrevList(list[i])
+        }
+      }
+    }
     
     file.status === "En progreso" ? setColor("#51a351") : setColor("#bd362f");
   }, [type, title, file.status]);
-  console.log(file)
 
   if (loading) {
     return <Loading />;
@@ -115,7 +126,7 @@ export default function FilePage(props) {
 
       <div className="filePage__addListItems">
         <h4>Agregar a</h4>
-        <FileAddListItems fileId={file._id}/>
+        <FileAddListItems fileId={file._id} prevList={prevList}/>
       </div>
 
       <div className="filePage__caps">

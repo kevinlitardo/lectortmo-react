@@ -94,7 +94,8 @@ export default function LoginPage(props) {
       setUser({
         username: res.data.username,
         id: res.data.id,
-        userIMG: res.data.userIMG
+        userIMG: res.data.userIMG,
+        lists: res.data.lists
       });
 
       setUserData({

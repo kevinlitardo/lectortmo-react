@@ -8,6 +8,7 @@ export function UserProvider(props) {
     username: null,
     id: null,
     userIMG: null,
+    lists: null,
   });
 
   return (
