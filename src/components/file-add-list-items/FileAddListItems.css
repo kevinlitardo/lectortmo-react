@@ -1,7 +1,7 @@
 .fileAddListItems {
   width: 100%;
   height: auto;
-  background: rgba(0, 0, 0, 0.75);
+  background: #343a40;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
