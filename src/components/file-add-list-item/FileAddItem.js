@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext } from 'react'
 import axios from 'axios';
 
 import { UserContext } from "../../hooks/userContext";
@@ -38,7 +38,6 @@ export default function FileAddItem({Icon, list, title, color, fileId, prevList}
       variant="contained" 
       onClick={handleClick}
       style={prevList === list ? StyleActive : null}
-      id='listButtons'
       >
       <Icon style={{color: color, fontSize: 'xx-large'}} />
       <span style={textStyle}>{title}</span>

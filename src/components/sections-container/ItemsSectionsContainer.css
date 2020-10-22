@@ -1,6 +1,24 @@
 .itemsSectionsContainer {
+  width: 100%;
+  height: auto;
   background: #f1f1f1;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
+  border-radius: 2px;
+}
+
+.itemsSectionsContainer > .MuiButtonBase-root {
+  background: transparent;
+  color: #1d1d1d;
+  display: inline-block;
+  font-size: 9px;
+  width: auto;
+  font-weight: normal;
+  box-shadow: none;
+  position: relative;
+}
+
+.itemsSectionsContainer > .MuiButtonBase-root:hover {
+  background: rgba(0, 0, 0, 0.2);
 }

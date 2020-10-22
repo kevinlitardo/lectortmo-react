@@ -12,9 +12,10 @@ import UploadPage from "./pages/upload-page/UploadPage";
 import LoginPage from "./pages/login-page/LoginPage";
 import RegisterPage from "./pages/register-page/RegisterPage";
 import FilePage from "./pages/file-page/FilePage";
+import UserProfile from "./pages/user-profile/UserProfile";
+import UserList from "./pages/user-list/UserList";
 
 import "./App.css";
-import UserProfile from "./pages/user-profile/UserProfile";
 
 function App() {
   const { user } = useContext(UserContext);
@@ -38,7 +39,10 @@ function App() {
             {user.username ? <UploadPage /> : <Redirect to="/" />}
           </Route>
           <Route path="/user/:username" exact strict>
-            {user.username ? <UserProfile /> : <Redirect to="/" />}
+            {user ? <UserProfile /> : <Redirect to="/" />}
+          </Route>
+          <Route path="/user/:username/:list" exact strict>
+            {user ? <UserList /> : <Redirect to="/" />}
           </Route>
           <Route path="/:type/:title" strict exact component={FilePage} />
         </Switch>
