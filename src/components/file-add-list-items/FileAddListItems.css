@@ -7,3 +7,17 @@
   align-items: center;
   border-radius: 2px;
 }
+.fileAddListItems > .MuiButtonBase-root {
+  background: transparent;
+  color: #bfbfbf;
+  display: inline-block;
+  font-size: 9px;
+  width: auto;
+  font-weight: normal;
+  box-shadow: none;
+  position: relative;
+}
+
+.fileAddListItems > .MuiButtonBase-root:hover {
+  background: rgba(0, 0, 0, 0.2);
+}

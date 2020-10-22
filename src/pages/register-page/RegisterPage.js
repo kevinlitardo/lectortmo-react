@@ -124,8 +124,8 @@ export default function RegisterPage(props) {
 
     try {
       await axios.post(
-        // "https://lectortmo-api.herokuapp.com/user/register", 
-        "http://localhost:4000/user/register",
+        "https://lectortmo-api.herokuapp.com/user/register", 
+        // "http://localhost:4000/user/register",
       {
         username: userData.username,
         email: userData.email,

@@ -34,7 +34,11 @@ export default function FilePage(props) {
       setLoading(false);
     };
     fetcher();
+    
+    file.status === "En progreso" ? setColor("#51a351") : setColor("#bd362f");
+  }, [type, title, file.status]);
 
+  useEffect(()=>{
     if(user.username){
       const list = Object.keys(user.lists)
       const arrays = Object.values(user.lists)
@@ -44,9 +48,7 @@ export default function FilePage(props) {
         }
       }
     }
-    
-    file.status === "En progreso" ? setColor("#51a351") : setColor("#bd362f");
-  }, [type, title, file.status, user.lists, file._id, user.username]);
+  }, [user.lists, file._id, user.username])
 
   if (loading) {
     return <Loading />;
