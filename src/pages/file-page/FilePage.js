@@ -25,11 +25,12 @@ export default function FilePage(props) {
 
   const { typeColor, demographyColor } = useColor(file.type, file.demography);
   const type = props.match.params.type;
-  const title = props.match.params.title.replace("-", " ");
+  const title = props.match.params.title.replace(/[-]/g, " ");
+  console.log(title)
 
   useEffect(() => {
     const fetcher = async () => {
-      const res = await axios.get(`https://lectortmo-api.herokuapp.com/${type}/${title}`);
+      const res = await axios.get(`https://lectortmo-api.herokuapp.com/api/file/${title}`);
       setFile(res.data);
       setLoading(false);
     };
