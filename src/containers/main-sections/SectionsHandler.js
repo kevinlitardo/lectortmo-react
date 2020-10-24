@@ -2,9 +2,7 @@ import React, { useContext } from "react";
 
 import SectionButton from "../../components/section-button/SectionBotton";
 import { LoadedSectionContext } from "../../hooks/loadedSectionContext";
-import PopularContainer from "./PopularContainer";
-import SeinenContainer from "./SeinenContainer";
-import ShounenContainer from "./ShounenContainer";
+import FilesMainContainer from "./FilesMainContainer";
 
 import "./SectionsHandler.css";
 
@@ -53,9 +51,9 @@ export default function SectionsHandler() {
         )}
       </div>
       <div className="sectionsHandler__files">
-        {activeSection[0].active === true && <PopularContainer />}
-        {activeSection[1].active === true && <SeinenContainer />}
-        {activeSection[2].active === true && <ShounenContainer />}
+        {activeSection[0].active === true && <FilesMainContainer search='trending'/>}
+        {activeSection[1].active === true && <FilesMainContainer search='seinen'/>}
+        {activeSection[2].active === true && <FilesMainContainer search='shounen'/>}
       </div>
     </div>
   );

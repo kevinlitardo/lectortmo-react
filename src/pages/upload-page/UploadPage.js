@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
+
+import { UserContext } from "../../hooks/userContext";
 
 import "./UploadPage.css";
 import Button from "@material-ui/core/Button";
@@ -33,6 +35,7 @@ const useStyles = makeStyles(() => ({
 const tags = ["Ecchi", "Romance", "Ciencia Ficción"];
 
 export default function UploadPage() {
+  const {user}=useContext(UserContext)
   const classes = useStyles();
   const [error, setError] = useState(false);
   const [uploaded, setUploaded] = useState(false);
@@ -72,7 +75,7 @@ export default function UploadPage() {
     e.preventDefault();
     try {
       const res = await axios.post(
-        `https://lectortmo-api.herokuapp.com/${formData.type.toLowerCase()}s/upload`,
+        `https://lectortmo-api.herokuapp.com/${formData.type.toLowerCase()}s/upload/${user.id}`,
         {
           title: formData.title,
           description: formData.description,
@@ -102,7 +105,7 @@ export default function UploadPage() {
     } catch (err) {
       window.scroll({ top: 0, behavior: "smooth" });
       setError(true);
-      console.log(err);
+      console.log(err.response.data);
     }
   };
 

@@ -2,9 +2,7 @@ import React, { useContext } from "react";
 
 import SectionButton from "../../components/section-button/SectionBotton";
 import { LoadedSectionContext } from "../../hooks/loadedSectionContext";
-import TrendingContainer from "./TrendingContainer";
-import TrendingSeinenContainer from "./TrendingSeinenContainer";
-import TrendingShonenContainer from "./TrendingShonenContainer";
+import TrendingFilesContainer from "./TrendingFilesContainer";
 
 import "./TrendingSectionHandler.css";
 
@@ -53,9 +51,9 @@ export default function TrendingSectionHandler() {
         )}
       </div>
       <div className="trendingSectionHandler__files">
-        {activeTrending[0].active === true && <TrendingContainer />}
-        {activeTrending[1].active === true && <TrendingSeinenContainer />}
-        {activeTrending[2].active === true && <TrendingShonenContainer />}
+        {activeTrending[0].active === true && <TrendingFilesContainer search='all'/>}
+        {activeTrending[1].active === true && <TrendingFilesContainer search='seinen'/>}
+        {activeTrending[2].active === true && <TrendingFilesContainer search='shounen'/>}
       </div>
     </div>
   );

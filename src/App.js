@@ -6,7 +6,7 @@ import Header from "./components/header/Header";
 import MobileMenu from "./components/mobile-menu/MobileMenu";
 import SectionsHandler from "./containers/main-sections/SectionsHandler";
 import MyListsContainer from "./containers/my-lists-container/MyListsContainer";
-import TrendingSectionHandler from "./containers/trending/TrendingSectionHandler";
+import TrendingSectionHandler from "./containers/trending-sections/TrendingSectionHandler";
 import LastNewsContainer from "./containers/news-container/LastNewsContainer";
 import UploadPage from "./pages/upload-page/UploadPage";
 import LoginPage from "./pages/login-page/LoginPage";

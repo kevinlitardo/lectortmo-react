@@ -108,6 +108,7 @@ export default function LoginPage(props) {
       });
 
       props.history.push("/");
+      console.log(props)
     } catch (err) {
       setError(true);
       setUserData({
