@@ -5,9 +5,10 @@ import FileItem from "../../components/file-item/FileItem";
 import LoaderButton from "../../components/loader-button/LoaderButton";
 import Loading from "../../components/loading/Loading";
 
-import "./MangasContainer.css";
+import "./FilesMainContainer.css";
 import StarIcon from "@material-ui/icons/Star";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import { Grid } from "@material-ui/core";
 
 export default function FilesMainContainer({search}) {
   let url;
@@ -30,29 +31,33 @@ export default function FilesMainContainer({search}) {
       }
     };
     fetcher();
-  }, [search]);
+  }, [search, url]);
 
   if (loading) {
     return <Loading />;
   }
   return (
     <div className="mangasContainer">
-      {data.map((item) => (
-        <FileItem
-          IconStar={StarIcon}
-          IconType={FavoriteIcon}
-          key={item._id}
-          title={item.title}
-          type={item.type}
-          rating={item.rating}
-          demography={item.demography}
-          bg={item.imageURL}
-          id={item._id}
-          description={item.description}
-          tags={item.tags}
-          status={item.status}
-        />
-      ))}
+      <Grid container justify='space-evenly' spacing={1} style={{margin: '0'}}>
+          {data.map((item, x) => (
+          <Grid item xs={6} key={x}>
+            <FileItem
+              IconStar={StarIcon}
+              IconType={FavoriteIcon}
+              key={item._id}
+              title={item.title}
+              type={item.type}
+              rating={item.rating}
+              demography={item.demography}
+              bg={item.imageURL}
+              id={item._id}
+              description={item.description}
+              tags={item.tags}
+              status={item.status}
+            />
+          </Grid>
+        ))}
+      </Grid>
 
       <div className="mangasContainer__button">
         <LoaderButton />

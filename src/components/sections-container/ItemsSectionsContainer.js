@@ -9,15 +9,15 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import CheckBoxOutlinedIcon from "@material-ui/icons/CheckBoxOutlined";
 import ThumbDownOutlinedIcon from "@material-ui/icons/ThumbDownOutlined";
 
-export default function ItemsSectionsContainer() {
+export default function ItemsSectionsContainer({setList, activeList}) {
   return (
-    <div className="itemsSectionsContainer">
-      <Item Icon={CheckCircleOutlineIcon} title="Leido" color='#51a351' />
-      <Item Icon={AccessTimeIcon} title="Pendiente" color='#f89406' />
-      <Item Icon={PlayCircleOutlineIcon} title="Siguiendo" color='#2f96b4' />
-      <Item Icon={FavoriteBorderIcon} title="Favorito" color='#bd362f' />
-      <Item Icon={CheckBoxOutlinedIcon} title="Lo tengo" color='#0e67ef' />
-      <Item Icon={ThumbDownOutlinedIcon} title="Abandonado" color='#970047' />
-    </div>
+    <section className="itemsSectionsContainer" style={{background: '#343a40'}}>
+      <Item Icon={CheckCircleOutlineIcon} title="Leido" list='read' color='#51a351' setList={setList} activeList={activeList} />
+      <Item Icon={AccessTimeIcon} title="Pendiente" list='pending' color='#f89406' setList={setList} activeList={activeList} />
+      <Item Icon={PlayCircleOutlineIcon} title="Siguiendo" list='following' color='#2f96b4' setList={setList} activeList={activeList} />
+      <Item Icon={FavoriteBorderIcon} title="Favorito" list='favorite' color='#bd362f' setList={setList} activeList={activeList} />
+      <Item Icon={CheckBoxOutlinedIcon} title="Lo tengo" list='obtained' color='#0e67ef' setList={setList} activeList={activeList} />
+      <Item Icon={ThumbDownOutlinedIcon} title="Abandonado" list='abandoned' color='#970047' setList={setList} activeList={activeList} />
+    </section>
   );
 }

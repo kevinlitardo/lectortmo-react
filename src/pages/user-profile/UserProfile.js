@@ -3,6 +3,7 @@ import axios from "axios";
 
 import { UserContext } from "../../hooks/userContext";
 import ItemsSectionsContainer from "../../components/sections-container/ItemsSectionsContainer";
+import UserList from "../user-list/UserList";
 
 import "./UserProfile.css";
 import "./EditForm.css";
@@ -20,11 +21,12 @@ import CloseIcon from "@material-ui/icons/Close";
 export default function UserProfile() {
   const { user } = useContext(UserContext);
   const [editModal, setEditModal] = useState(false)
+  const [activeList, setList]=useState(null)
 
   const closeModal = ()=>{
     setEditModal(false)
   }
-
+  console.log(activeList)
   return (
     <div className="userprofile__container">
       <div className="userProfile__data">
@@ -33,13 +35,14 @@ export default function UserProfile() {
           // src={user.userIMG ? user.userIMG : "./public/default-user.png"}
           src={user.userIMG !== '' ? user.userIMG : defaultUser}
           // alt={user.username}
-          alt="username"
+          alt={user.username}
           />
         {/* <h2>{user.username}</h2> */}
         <h2>{user.username}</h2>
       </div>
 
-      <ItemsSectionsContainer />
+      <ItemsSectionsContainer setList={setList} activeList={activeList}/>
+      {activeList && <UserList activeList={activeList} id={user.id} setList={setList}/>}
       {editModal && <UserProfileEditForm closeModal={closeModal}/>}
       <Button variant="contained" startIcon={<EditIcon />} onClick={()=>setEditModal(true)} className='edit_button'>
         Editar Perfil

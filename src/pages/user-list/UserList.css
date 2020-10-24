@@ -1,0 +1,21 @@
+.userProfileListsContainer {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 80px;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.userProfileListsContainer > button {
+  width: 100%;
+  height: auto;
+  background: #bd362f;
+  color: #f1f1f1;
+  margin-bottom: 5px;
+}
+
+.userProfileListsContainer > button:hover {
+  background: hsl(3, 60%, 39%);
+  color: rgb(207, 207, 207);
+}
