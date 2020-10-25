@@ -41,10 +41,11 @@ export default function FilePage(props) {
 
   useEffect(()=>{
     if(user.username){
+      setPrevList(null)
       const list = Object.keys(user.lists)
       const arrays = Object.values(user.lists)
       for (let i = 0; i < 6; i++) {
-        if(arrays[i].find(id => id === file._id)) {
+        if(arrays[i].some(id => id === file._id)) {
           setPrevList(list[i])
         }
       }

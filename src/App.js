@@ -39,10 +39,10 @@ function App() {
             {user.username ? <UploadPage /> : <Redirect to="/" />}
           </Route>
           <Route path="/user/:username" exact strict>
-            {user ? <UserProfile /> : <Redirect to="/" />}
+            {user.username ? <UserProfile /> : <Redirect to="/" />}
           </Route>
           <Route path="/user/:username/:list" exact strict>
-            {user ? <UserList /> : <Redirect to="/" />}
+            {user.username ? <UserList /> : <Redirect to="/" />}
           </Route>
           <Route path="/:type/:title" strict exact component={FilePage} />
         </Switch>

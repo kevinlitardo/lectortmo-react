@@ -43,7 +43,7 @@ export default function UserList({activeList, id, setList}) {
       <Button variant="contained" onClick={handleClick}>
         Cerrar lista
       </Button>
-      <Grid container justify='space-evenly' spacing={1} style={{margin: '0'}}>
+      <Grid container justify='space-evenly' spacing={1} style={{margin: '0', width: 'auto'}}>
         {list.length === 0 ? <h1>No data prro</h1> : 
           list.map((item, x) => (
           <Grid item xs={6} key={x}>

@@ -38,7 +38,7 @@ export default function FilesMainContainer({search}) {
   }
   return (
     <div className="mangasContainer">
-      <Grid container justify='space-evenly' spacing={1} style={{margin: '0'}}>
+      <Grid container justify='space-evenly' spacing={1} style={{margin: '0', width: 'auto'}}>
           {data.map((item, x) => (
           <Grid item xs={6} key={x}>
             <FileItem

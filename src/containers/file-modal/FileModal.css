@@ -155,10 +155,6 @@
   margin-bottom: 10px;
 }
 
-.fileModal__container > .fileModal__description::-webkit-scrollbar {
-  display: none;
-}
-
 .fileModal__container > .fileModal__description > p {
   width: 100%;
   height: auto;
@@ -167,6 +163,10 @@
   overflow-x: hidden;
   font-size: large;
   text-align: justify;
+}
+
+.fileModal__container > .fileModal__description > p::-webkit-scrollbar {
+  display: none;
 }
 
 .fileModal__container > .fileModal__tags,

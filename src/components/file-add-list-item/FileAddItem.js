@@ -30,7 +30,7 @@ export default function FileAddItem({Icon, list, title, color, fileId, prevList}
       console.log(error)
     }
   }
-  
+  console.log(prevList)
   return (
     <Button 
       aria-label={title} 

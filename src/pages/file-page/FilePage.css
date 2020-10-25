@@ -122,10 +122,6 @@
   margin-bottom: 10px;
 }
 
-.filePage__container > .filePage__description::-webkit-scrollbar {
-  display: none;
-}
-
 .filePage__container > .filePage__description > p {
   width: 100%;
   height: auto;
@@ -135,6 +131,10 @@
   font-size: large;
   text-align: justify;
   color: #f1f1f1;
+}
+
+.filePage__container > .filePage__description > p::-webkit-scrollbar {
+  display: none;
 }
 
 .filePage__container > .filePage__tags,
