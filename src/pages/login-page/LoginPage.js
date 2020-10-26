@@ -97,7 +97,7 @@ export default function LoginPage(props) {
         lists: res.data.lists,
         token: res.data.token
       });
-      // window.localStorage.setItem('auth_token', res.data.token)
+      window.localStorage.setItem('auth_token', res.data.token)
 
       setUserData({
         email: "",
