@@ -83,14 +83,12 @@ export default function LoginPage(props) {
     e.preventDefault();
     try {
       // "http://localhost:4000/user/login",
-      const res = await axios({
-        url: "https://lectortmo-api.herokuapp.com/user/login",
-        method: 'post',
-        data: {
+      const res = await axios.post("https://lectortmo-api.herokuapp.com/user/login",
+        {
           email: userData.email,
           password: userData.password,
         }
-      });
+      );
       console.log(res.data);
       setUser({
         username: res.data.username,
@@ -99,7 +97,7 @@ export default function LoginPage(props) {
         lists: res.data.lists,
         token: res.data.token
       });
-      window.localStorage.setItem('auth_token', res.data.token)
+      // window.localStorage.setItem('auth_token', res.data.token)
 
       setUserData({
         email: "",
