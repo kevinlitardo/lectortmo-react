@@ -89,11 +89,7 @@ export default function LoginPage(props) {
         data: {
           email: userData.email,
           password: userData.password,
-        }, 
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        withCredentials: true
+        }
       });
       console.log(res.data);
       setUser({
