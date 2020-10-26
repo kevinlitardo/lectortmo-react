@@ -19,3 +19,25 @@ code {
   box-sizing: border-box;
   font-family: "Ubuntu", sans-serif;
 }
+
+body > .MuiPopover-root > .MuiPaper-root > .MuiList-root {
+  max-height: "317px";
+}
+
+body > .MuiPopover-root > .MuiPaper-root > .MuiList-padding {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+body > .MuiPopover-root > .MuiPaper-root > .MuiList-root > .MuiListItem-root {
+  margin: 5px;
+  border-radius: 2px;
+}
+
+body
+  > .MuiPopover-root
+  > .MuiPaper-root
+  > .MuiList-root
+  > .MuiListItem-root.Mui-selected {
+  background: rgba(0, 0, 0, 0.452);
+}

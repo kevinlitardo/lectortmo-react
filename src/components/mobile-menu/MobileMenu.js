@@ -37,12 +37,15 @@ const MobileMenu = ({ hideMenu }) => {
 
   const handleLogout = async () => {
     try {
-      await axios.get('http://localhost:4000/user/logout')
+      await axios.get('https://lectortmo-api.herokuapp.com/user/logout')
       setUser({
         username: null,
         id: null,
-        userIMG: null
+        userIMG: null,
+        lists: null,
+        token: null
       })
+      window.localStorage.clear()
       history.push('/')
       hideMenu()
       

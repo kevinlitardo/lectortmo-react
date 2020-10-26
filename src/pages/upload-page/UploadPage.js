@@ -23,6 +23,12 @@ const useStyles = makeStyles(() => ({
       border: "none",
       margin: "5px 0 10px 0",
     },
+    "& .MuiSelect-root > div": {
+      display: 'flex',
+      flexWrap: 'wrap',
+      justifyContent: 'space-evenly',
+      rowGap: '5px'
+    },
     "& .MuiInput-underline:after": {
       borderBottomColor: "#929a9e",
     },
@@ -32,7 +38,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const tags = ["Ecchi", "Romance", "Ciencia Ficción"];
+const tags = ["Acción", "Apocalíptico", "Artes Marciales", "Aventura", "Ciencia Ficción", "Comedia", "Cyberpunk", "Demonios", "Deporte", "Drama", "Ecchi", "Gore", "Harem", "Horror", "Isekai", "Magia", "Mecha", "Militar", "Misterio", "Psicológico", "Recuentos de vida", "Reencarnación", "Romance", "Samuraí", "Sobrenatural", "Superpoderes", "Supervivencia", "Tragedia", "Vida Escolar", "Webcomic"];
 
 export default function UploadPage() {
   const {user}=useContext(UserContext)
@@ -75,7 +81,7 @@ export default function UploadPage() {
     e.preventDefault();
     try {
       const res = await axios.post(
-        `https://lectortmo-api.herokuapp.com/${formData.type.toLowerCase()}s/upload/${user.id}`,
+        `https://lectortmo-api.herokuapp.com/api/upload/${user.id}`,
         {
           title: formData.title,
           description: formData.description,
@@ -84,7 +90,12 @@ export default function UploadPage() {
           status: formData.status,
           demography: formData.demography,
           tags: formData.tags,
-        }
+        }, {
+          headers: {
+            "Content-Type": 'application/json',
+            "auth_token": user.token
+          },
+          withCredentials: true}
       );
       console.log(res);
 
@@ -105,7 +116,7 @@ export default function UploadPage() {
     } catch (err) {
       window.scroll({ top: 0, behavior: "smooth" });
       setError(true);
-      console.log(err.response.data);
+      console.log(err.response.data)
     }
   };
 
@@ -173,9 +184,9 @@ export default function UploadPage() {
           value={formData.type}
           defaultValue=" "
         >
-          <MenuItem value="manga">Manga</MenuItem>
-          <MenuItem value="manhwa">Manhwa</MenuItem>
-          <MenuItem value="novela">Novela</MenuItem>
+          <MenuItem value="Manga">Manga</MenuItem>
+          <MenuItem value="Manhwa">Manhwa</MenuItem>
+          <MenuItem value="Novela">Novela</MenuItem>
         </Select>
 
         <InputLabel htmlFor="demography">Escoje un género</InputLabel>
@@ -187,8 +198,8 @@ export default function UploadPage() {
           transitioncomponent={Fade}
           value={formData.demography}
         >
-          <MenuItem value="shounen">Shounen</MenuItem>
-          <MenuItem value="seinen">Seinen</MenuItem>
+          <MenuItem value="Shounen">Shounen</MenuItem>
+          <MenuItem value="Seinen">Seinen</MenuItem>
         </Select>
 
         <InputLabel htmlFor="tags">Inserta las etiquetas</InputLabel>
@@ -204,7 +215,7 @@ export default function UploadPage() {
           renderValue={(selected) => (
             <div>
               {selected.map((value) => (
-                <Chip key={value} label={value} />
+                <Chip key={value} label={value}/>
               ))}
             </div>
           )}
@@ -225,9 +236,9 @@ export default function UploadPage() {
           transitioncomponent={Fade}
           value={formData.status}
         >
-          <MenuItem value="shounen">En progreso</MenuItem>
-          <MenuItem value="seinen">Terminado</MenuItem>
-          <MenuItem value="seinen">Abandonado</MenuItem>
+          <MenuItem value="En progreso">En progreso</MenuItem>
+          <MenuItem value="Terminado">Terminado</MenuItem>
+          <MenuItem value="Abandonado">Abandonado</MenuItem>
         </Select>
 
         <Button

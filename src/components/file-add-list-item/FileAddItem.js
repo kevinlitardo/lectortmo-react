@@ -24,13 +24,19 @@ export default function FileAddItem({Icon, list, title, color, fileId, prevList}
         userId: user.id,
         fileId: fileId,
         prevList: prevList
-      })
+      }, {
+        headers: {
+          "Content-Type": 'application/json',
+          "auth_token": user.token
+        },
+        withCredentials: true}
+      )
       setUser({...user, lists: res.data})
     } catch (error) {
       console.log(error)
     }
   }
-  console.log(prevList)
+  
   return (
     <Button 
       aria-label={title} 

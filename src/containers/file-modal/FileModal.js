@@ -64,9 +64,7 @@ const FileModal = ({ hideFile, props }) => {
 
         <div className="fileModal__tags">
           <h4>Géneros</h4>
-          {props.tags.map((tag, _x) => (
-            <span key={_x}>{tag}</span>
-          ))}
+          {props.tags.map((tag) => tag === 'Webcomic' ? <span key={tag} style={{background: '#f89406'}}>{tag}</span> : <span key={tag}>{tag}</span>)}
         </div>
 
         <div className="fileModal__status">

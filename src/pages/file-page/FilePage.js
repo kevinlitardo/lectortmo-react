@@ -26,7 +26,6 @@ export default function FilePage(props) {
   const { typeColor, demographyColor } = useColor(file.type, file.demography);
   const type = props.match.params.type;
   const title = props.match.params.title.replace(/[-]/g, " ");
-  console.log(title)
 
   useEffect(() => {
     const fetcher = async () => {
@@ -115,9 +114,7 @@ export default function FilePage(props) {
 
       <div className="filePage__tags">
         <h4>Géneros</h4>
-        {file.tags.map((tag, _x) => (
-          <span key={_x}>{tag}</span>
-        ))}
+        {file.tags.map((tag) => tag === 'Webcomic' ? <span key={tag} style={{background: '#f89406'}}>{tag}</span> : <span key={tag}>{tag}</span>)}
       </div>
 
       <div className="filePage__status">

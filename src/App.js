@@ -16,13 +16,21 @@ import UserProfile from "./pages/user-profile/UserProfile";
 import UserList from "./pages/user-list/UserList";
 
 import "./App.css";
+import Loading from "./components/loading/Loading";
 
 function App() {
-  const { user } = useContext(UserContext);
+  const { user, loading } = useContext(UserContext);
   const [mobileMenu, setMobileMenu] = useState(false);
   const showMenu = () => setMobileMenu(true);
   const hideMenu = () => setMobileMenu(false);
 
+  if(loading) {
+    return (
+      <div className="app">
+        <Loading />
+      </div>
+    )
+  }
   return (
     <Router>
       <div className="app">

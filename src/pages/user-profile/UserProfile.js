@@ -26,7 +26,7 @@ export default function UserProfile() {
   const closeModal = ()=>{
     setEditModal(false)
   }
-  console.log(activeList)
+  
   return (
     <div className="userprofile__container">
       <div className="userProfile__data">
@@ -162,11 +162,18 @@ export function UserProfileEditForm({closeModal}) {
     //Verification login
     try {
       await axios.post(
-        // "https://lectortmo-api.herokuapp.com/user/login",
-        "http://localhost:4000/user/login",
+        "https://lectortmo-api.herokuapp.com/user/login",
+        // "http://localhost:4000/user/login",
         {
           email: editForm.email,
           password: editForm.password,
+        }, 
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'auth_token': user.token
+          },
+          withCredentials: true
         }
       )
     } catch (err) {
@@ -177,14 +184,21 @@ export function UserProfileEditForm({closeModal}) {
     //Update request
     try {
       const res = await axios.patch(
-        // "https://lectortmo-api.herokuapp.com/user/update",
-        "http://localhost:4000/user/update",
+        "https://lectortmo-api.herokuapp.com/user/update",
+        // "http://localhost:4000/user/update",
         {
           username: editForm.username,
           new_email: editForm.new_email,
           new_password: editForm.new_password,
           image: editForm.image,
           id: user.id
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'auth_token': user.token
+          },
+          withCredentials: true
         }
       );
       
@@ -196,6 +210,8 @@ export function UserProfileEditForm({closeModal}) {
       });
       setEditForm({
         showPassword: false,
+        email: '',
+        password: ''
       });
       return
     } 
@@ -205,8 +221,8 @@ export function UserProfileEditForm({closeModal}) {
     const password= editForm.new_password !== '' ? editForm.new_password : editForm.password
     try {
       const res = await axios.post(
-        // "https://lectortmo-api.herokuapp.com/user/login",
-        "http://localhost:4000/user/login",
+        "https://lectortmo-api.herokuapp.com/user/login",
+        // "http://localhost:4000/user/login",
         {
           email: email,
           password: password
@@ -216,24 +232,25 @@ export function UserProfileEditForm({closeModal}) {
         username: res.data.username,
         id: res.data.id,
         userIMG: res.data.userIMG,
-        lists: res.data.lists
+        lists: res.data.lists,
+        token: res.data.token
       })
+      window.localStorage.setItem("auth_token", res.data.token)
+      //Clear inputs values
+      setEditForm({
+        showNewPassword: false,
+        showPassword: false,
+        username: '',
+        email: '',
+        image: '',
+        new_password: '',
+        new_email: '',
+        password: "",
+      });
     } catch (err) {
         console.log(err.response.data)
         return 
     }
-
-    //Clear inputs values
-    setEditForm({
-      showNewPassword: false,
-      showPassword: false,
-      username: '',
-      email: '',
-      image: '',
-      new_password: '',
-      new_email: '',
-      password: "",
-    });
   };
 
   return (
@@ -319,7 +336,7 @@ export function UserProfileEditForm({closeModal}) {
           </small>
           )}
 
-<InputLabel htmlFor="email">Direccion de Correo</InputLabel>
+          <InputLabel htmlFor="email">Direccion de Correo</InputLabel>
           <Input
             id="email"
             variant="filled"

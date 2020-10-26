@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import axios from 'axios'
 
 import FileItem from "../../components/file-item/FileItem";
 import Loading from "../../components/loading/Loading";
 import Button from '@material-ui/core/Button';
+
+import { UserContext } from "../../hooks/userContext";
 
 import './UserList.css'
 import StarIcon from "@material-ui/icons/Star";
@@ -11,13 +13,20 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import { Grid } from '@material-ui/core';
 
 export default function UserList({activeList, id, setList}) {
+  const { user } = useContext(UserContext);
   const [list, setListData] = useState([])
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetcher = async () => {
       try {
-        const req = await axios.get(`https://lectortmo-api.herokuapp.com/user/${id}/${activeList}`);
+        const req = await axios.get(`https://lectortmo-api.herokuapp.com/user/${id}/${activeList}`, {
+          headers: {
+            'Content-Type': 'application/json',
+            'auth_token': user.token
+          },
+          withCredentials: true
+        });
         setListData(req.data.lists[activeList]);
         setLoading(false);
       } catch (error) {
@@ -25,7 +34,7 @@ export default function UserList({activeList, id, setList}) {
       }
     };
     fetcher();
-  }, [activeList, id]);
+  }, [activeList, id, user.token]);
 
   const handleClick = ()=>{
     setList(null)
