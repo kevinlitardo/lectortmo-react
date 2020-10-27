@@ -10,7 +10,7 @@ export default function MyListsContainer() {
     <div className="myListsContainer">
       <ListsHandler />
       <h2>Mis Capítulos Pendientes</h2>
-      <ItemsSectionsContainer />
+      <ItemsSectionsContainer mode='1'/>
     </div>
   );
 }

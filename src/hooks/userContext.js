@@ -14,10 +14,8 @@ export function UserProvider(props) {
         headers: {
           'Content-Type': 'application/json',
           'auth_token': token
-        },
-        withCredentials: true
+        }
       });
-      console.log(res.data);
       setUser({
         username: res.data.username,
         id: res.data.id,
@@ -27,7 +25,7 @@ export function UserProvider(props) {
       });
       setLoading(false)
     } catch (err) {
-      console.log(err.response.data)
+      console.log(err)
     }
   }
 

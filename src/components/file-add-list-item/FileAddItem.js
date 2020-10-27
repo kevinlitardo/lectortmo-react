@@ -28,8 +28,8 @@ export default function FileAddItem({Icon, list, title, color, fileId, prevList}
         headers: {
           "Content-Type": 'application/json',
           "auth_token": user.token
-        },
-        withCredentials: true}
+        }
+      }
       )
       setUser({...user, lists: res.data})
     } catch (error) {

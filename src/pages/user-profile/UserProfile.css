@@ -1,4 +1,4 @@
-.userprofile__container {
+.userProfile__container {
   display: flex;
   flex-direction: column;
   height: auto;
@@ -12,6 +12,16 @@
   flex-direction: column;
   height: auto;
   width: 100%;
+}
+
+.userProfile__container > h4 {
+  color: #929a9e;
+  font-size: large;
+  font-weight: normal;
+  margin-bottom: 3px;
+  display: inline-block;
+  width: 100%;
+  margin-top: 15px;
 }
 
 .userProfile__data > span {
@@ -42,14 +52,13 @@
   margin-bottom: 20px;
 }
 
-.userprofile__container > button {
+.userProfile__container > button {
   width: 100%;
   background: #f89406;
   color: #000;
-  margin-top: 20px;
   font-size: medium;
 }
 
-.userprofile__container > .MuiButton-contained:hover {
+.userProfile__container > .MuiButton-contained:hover {
   background: #d17c05;
 }

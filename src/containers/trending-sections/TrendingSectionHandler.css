@@ -9,3 +9,8 @@
   align-items: center;
   margin-top: 1rem;
 }
+
+.trendingSectionHandler__files {
+  min-height: 300px;
+  position: relative;
+}

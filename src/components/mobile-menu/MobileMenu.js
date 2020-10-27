@@ -13,7 +13,6 @@ import GroupIcon from "@material-ui/icons/Group";
 import FormatListBulletedIcon from "@material-ui/icons/FormatListBulleted";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { Avatar } from "@material-ui/core";
-import axios from "axios";
 
 const mobileMenuContainer = document.getElementById("mobileMenu");
 
@@ -36,22 +35,16 @@ const MobileMenu = ({ hideMenu }) => {
   };
 
   const handleLogout = async () => {
-    try {
-      await axios.get('https://lectortmo-api.herokuapp.com/user/logout')
-      setUser({
-        username: null,
-        id: null,
-        userIMG: null,
-        lists: null,
-        token: null
-      })
-      window.localStorage.clear()
-      history.push('/')
-      hideMenu()
-      
-    } catch (error) {
-      console.log(error.response.data)
-    }
+    setUser({
+      username: null,
+      id: null,
+      userIMG: null,
+      lists: null,
+      token: null
+    })
+    window.localStorage.clear()
+    history.push('/')
+    hideMenu()
   };
 
   return createPortal(

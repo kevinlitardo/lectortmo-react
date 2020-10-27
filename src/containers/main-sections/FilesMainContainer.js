@@ -13,9 +13,9 @@ import { Grid } from "@material-ui/core";
 export default function FilesMainContainer({search}) {
   let url;
   if(search !== 'trending'){
-    url = `https://lectortmo-api.herokuapp.com/api/demo/${search}`
+    url = `https://lectortmo-api.herokuapp.com/api/demo/${search}?page=1&limit=10&order=rating`
   } else {
-    url = `https://lectortmo-api.herokuapp.com/api/trending`
+    url = `https://lectortmo-api.herokuapp.com/api/trending?page=1&limit=10`
   }
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
@@ -24,7 +24,7 @@ export default function FilesMainContainer({search}) {
     const fetcher = async () => {
       try {
         const req = await axios.get(url);
-        setData(req.data);
+        setData(req.data.results);
         setLoading(false);
       } catch (error) {
         console.error(error);

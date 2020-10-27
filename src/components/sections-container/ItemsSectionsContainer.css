@@ -8,7 +8,17 @@
   border-radius: 2px;
 }
 
-.itemsSectionsContainer > .MuiButtonBase-root {
+.uploadsItemsContainer {
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  align-items: center;
+}
+
+.itemsSectionsContainer > .MuiButtonBase-root,
+.uploadsItemsContainer > .MuiButtonBase-root {
   background: transparent;
   color: #1d1d1d;
   display: inline-block;
@@ -19,6 +29,7 @@
   position: relative;
 }
 
-.itemsSectionsContainer > .MuiButtonBase-root:hover {
+.itemsSectionsContainer > .MuiButtonBase-root:hover,
+.uploadsItemsContainer > .MuiButtonBase-root:hover {
   background: rgba(0, 0, 0, 0.2);
 }

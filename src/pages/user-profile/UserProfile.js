@@ -1,9 +1,10 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 
 import { UserContext } from "../../hooks/userContext";
 import ItemsSectionsContainer from "../../components/sections-container/ItemsSectionsContainer";
-import UserList from "../user-list/UserList";
+import {UserList, UserUploadList} from "../../components/user-list/UserList";
+import Loading from "../../components/loading/Loading";
 
 import "./UserProfile.css";
 import "./EditForm.css";
@@ -11,7 +12,6 @@ import defaultUser from "../../user.png";
 import EditIcon from "@material-ui/icons/Edit";
 import { InputLabel, Input, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { useState } from "react";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import IconButton from "@material-ui/core/IconButton";
@@ -22,27 +22,32 @@ export default function UserProfile() {
   const { user } = useContext(UserContext);
   const [editModal, setEditModal] = useState(false)
   const [activeList, setList]=useState(null)
+  const [activeUpload, setUpload]=useState(null)
 
   const closeModal = ()=>{
     setEditModal(false)
   }
   
   return (
-    <div className="userprofile__container">
+    <div className="userProfile__container">
       <div className="userProfile__data">
         <span className="data--badget">Usuario</span>
         <img
-          // src={user.userIMG ? user.userIMG : "./public/default-user.png"}
           src={user.userIMG !== '' ? user.userIMG : defaultUser}
-          // alt={user.username}
           alt={user.username}
           />
-        {/* <h2>{user.username}</h2> */}
         <h2>{user.username}</h2>
       </div>
 
-      <ItemsSectionsContainer setList={setList} activeList={activeList}/>
+      <h4>Mis listas</h4>
+      <ItemsSectionsContainer setList={setList} activeList={activeList} mode='1'/>
       {activeList && <UserList activeList={activeList} id={user.id} setList={setList}/>}
+
+      <h4>Mis archivos subidos</h4>
+      <ItemsSectionsContainer setUpload={setUpload} activeUpload={activeUpload} mode='2'/>
+      {activeUpload && <UserUploadList activeUpload={activeUpload} id={user.id} setUpload={setUpload}/>}
+      
+      <h4>Editar perfil</h4>
       {editModal && <UserProfileEditForm closeModal={closeModal}/>}
       <Button variant="contained" startIcon={<EditIcon />} onClick={()=>setEditModal(true)} className='edit_button'>
         Editar Perfil
@@ -122,6 +127,7 @@ export function UserProfileEditForm({closeModal}) {
     new_password: '',
     password: "",
   })
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     if (error.status) {
@@ -159,7 +165,9 @@ export function UserProfileEditForm({closeModal}) {
     let errors = validation(editForm);
     if (Object.keys(errors).length > 0) return;
 
-    //Verification login
+    setLoading(true)
+
+    // Verification login
     try {
       await axios.post(
         "https://lectortmo-api.herokuapp.com/user/login",
@@ -172,18 +180,18 @@ export function UserProfileEditForm({closeModal}) {
           headers: {
             'Content-Type': 'application/json',
             'auth_token': user.token
-          },
-          withCredentials: true
+          }
         }
       )
     } catch (err) {
       console.log(err.response.data)
+      setLoading(false)
       return
     }
     
     //Update request
     try {
-      const res = await axios.patch(
+      await axios.patch(
         "https://lectortmo-api.herokuapp.com/user/update",
         // "http://localhost:4000/user/update",
         {
@@ -197,12 +205,10 @@ export function UserProfileEditForm({closeModal}) {
           headers: {
             'Content-Type': 'application/json',
             'auth_token': user.token
-          },
-          withCredentials: true
+          }
         }
       );
       
-      console.log(res)
     } catch (err) {
       setError({
         status: true,
@@ -213,6 +219,7 @@ export function UserProfileEditForm({closeModal}) {
         email: '',
         password: ''
       });
+      setLoading(false)
       return
     } 
     
@@ -236,6 +243,7 @@ export function UserProfileEditForm({closeModal}) {
         token: res.data.token
       })
       window.localStorage.setItem("auth_token", res.data.token)
+      
       //Clear inputs values
       setEditForm({
         showNewPassword: false,
@@ -247,11 +255,31 @@ export function UserProfileEditForm({closeModal}) {
         new_email: '',
         password: "",
       });
+
+      setLoading(false)
     } catch (err) {
-        console.log(err.response.data)
-        return 
+      console.log(err.response.data)
+      setLoading(false)
+      return 
     }
   };
+
+  const textStyle = {
+    fontSize: 'x-large',
+    fontWeight: 'normal',
+    color: '#2957ba',
+    marginTop: '100px',
+    textAling: 'center'
+  }
+
+  if(loading) {
+    return (
+      <div className="userProfile__edit">
+        <h2 style={textStyle}>Actualizando...</h2>
+        <Loading />
+      </div>
+    )
+  }
 
   return (
     <div className="userProfile__edit" >

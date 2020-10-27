@@ -13,7 +13,7 @@ import LoginPage from "./pages/login-page/LoginPage";
 import RegisterPage from "./pages/register-page/RegisterPage";
 import FilePage from "./pages/file-page/FilePage";
 import UserProfile from "./pages/user-profile/UserProfile";
-import UserList from "./pages/user-list/UserList";
+import {UserList} from "./components/user-list/UserList";
 
 import "./App.css";
 import Loading from "./components/loading/Loading";

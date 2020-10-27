@@ -94,8 +94,8 @@ export default function UploadPage() {
           headers: {
             "Content-Type": 'application/json',
             "auth_token": user.token
-          },
-          withCredentials: true}
+          }
+        }
       );
       console.log(res);
 
