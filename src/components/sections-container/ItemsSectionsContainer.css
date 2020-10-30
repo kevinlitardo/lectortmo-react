@@ -33,3 +33,19 @@
 .uploadsItemsContainer > .MuiButtonBase-root:hover {
   background: rgba(0, 0, 0, 0.2);
 }
+
+.itemsSectionsContainer > .MuiButtonBase-root > span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  font-size: x-small;
+  color: #bfbfbf;
+  row-gap: 3px;
+}
+
+@media only screen and (min-width: 375px) {
+  .itemsSectionsContainer > .MuiButtonBase-root > span {
+    font-size: small;
+  }
+}

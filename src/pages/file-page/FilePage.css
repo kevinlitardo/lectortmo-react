@@ -13,8 +13,9 @@
 
 .filePage__container > .filePage__type {
   display: inline-block;
-  width: 100%;
-  height: 8vh;
+  width: 70%;
+  margin: auto;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,7 +29,8 @@
 
 .filePage__container > .filePage__image-container {
   height: auto;
-  width: 100%;
+  width: 70%;
+  margin: auto;
   position: relative;
   border-radius: 2px;
 }
@@ -86,7 +88,7 @@
   height: auto;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   margin-bottom: 10px;
 }
 
@@ -247,4 +249,32 @@
   > .MuiSvgIcon-root {
   font-size: xx-large;
   cursor: pointer;
+}
+
+@media only screen and (min-width: 375px) {
+  .filePage__container {
+    margin-top: 10px;
+    padding: 20px;
+  }
+  .filePage__container > .filePage__rating > span {
+    font-size: larger;
+  }
+  .filePage__container
+    > .filePage__rating
+    > .filePage__rating--buttons
+    > .MuiIconButton-root {
+    width: 45px;
+    height: 45px;
+    padding: 10px;
+  }
+  .filePage__container > .filePage__tags > span {
+    font-size: large;
+  }
+}
+
+@media only screen and (min-width: 425px) {
+  .filePage__container {
+    margin-top: 15px;
+    padding: 25px;
+  }
 }

@@ -11,10 +11,6 @@ export default function FileAddItem({Icon, list, title, color, fileId, prevList}
   const StyleActive = {
     background: 'rgba(0, 0, 0, 0.5)'
   }
-  const textStyle ={
-    display: 'inline-block',
-    width: '100%'
-  }
 
   const handleClick = async () =>{
     if(!user.username) return
@@ -46,7 +42,7 @@ export default function FileAddItem({Icon, list, title, color, fileId, prevList}
       style={prevList === list ? StyleActive : null}
       >
       <Icon style={{color: color, fontSize: 'xx-large'}} />
-      <span style={textStyle}>{title}</span>
+      <span>{title}</span>
     </Button>
   )
 }

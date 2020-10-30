@@ -11,13 +11,6 @@ export function Item({ Icon, title, list, color, setList, activeList}) {
     background: 'rgba(0, 0, 0, 0.5)'
   }
 
-  const textStyle ={
-    display: 'inline-block',
-    width: '100%',
-    fontSize: "10px",
-    color: '#bfbfbf'
-  }
-
   const handleClick = ()=>{
     if(location.pathname.includes('/user')){
       setList(list)
@@ -33,7 +26,7 @@ export function Item({ Icon, title, list, color, setList, activeList}) {
       style={activeList === list ? StyleActive : null}
       >
       <Icon style={{color: color, fontSize: 'xx-large'}} />
-      <span style={textStyle}>{title}</span>
+      <span >{title}</span>
     </Button>
   );
 }
@@ -43,13 +36,6 @@ export function UploadItem({title, list, color, setUpload, activeUpload}) {
 
   const StyleActive = {
     background: 'rgba(0, 0, 0, 0.5)'
-  }
-
-  const textStyle ={
-    display: 'inline-block',
-    width: '100%',
-    fontSize: "small",
-    color: color
   }
 
   const handleClick = ()=>{
@@ -66,7 +52,7 @@ export function UploadItem({title, list, color, setUpload, activeUpload}) {
       onClick={handleClick}
       style={activeUpload === list ? StyleActive : null}
       >
-      <span style={textStyle}>{title}</span>
+      <span style={{color: color}}>{title}</span>
     </Button>
   );
 }

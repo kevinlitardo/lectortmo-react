@@ -134,17 +134,21 @@ export default function FilePage(props) {
         <h4>Capítulos</h4>
         <div className="filePage__caps--container">
           <div className="cap">
-            <span>Capítulo 1</span>
+            <span>Capítulo 3</span>
             <div className="buttons">
               <GetAppIcon />
               <PlayArrowIcon />
             </div>
+          </div>
+          <div className="cap">
             <span>Capítulo 2</span>
             <div className="buttons">
               <GetAppIcon />
               <PlayArrowIcon />
             </div>
-            <span>Capítulo 3</span>
+          </div>
+          <div className="cap">
+            <span>Capítulo 1</span>
             <div className="buttons">
               <GetAppIcon />
               <PlayArrowIcon />

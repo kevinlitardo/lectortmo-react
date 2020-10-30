@@ -2,7 +2,6 @@
   width: auto;
   height: auto;
   display: flex;
-  /* flex-direction: column; */
   align-items: center;
   justify-content: center;
   padding: 10px;
@@ -24,12 +23,16 @@
   font-size: 14px;
 }
 
-/* .section:nth-child(2) {
-  background: #2957ba;
+@media only screen and (min-width: 375px) {
+  .section > h4 {
+    font-size: large;
+  }
+  .section > .MuiSvgIcon-root {
+    font-size: x-large;
+  }
 }
-.section:nth-child(2) > .MuiSvgIcon-root {
-  color: #f1f1f1;
+@media only screen and (min-width: 425px) {
+  .section > .MuiSvgIcon-root {
+    font-size: x-large;
+  }
 }
-.section:nth-child(2) > h4 {
-  color: #f1f1f1;
-} */

@@ -9,7 +9,7 @@
 }
 
 .mobileMenu__header {
-  max-height: 12vh;
+  height: 55px;
   width: auto;
   display: flex;
   justify-content: space-between;
@@ -26,11 +26,10 @@
 .mobileMenu__userBtn > span {
   font-size: x-large;
   color: #929a9e;
-  text-transform: capitalize;
 }
-.mobileMenu__userBtn > .MuiAvatar-rounded {
-  width: 30px;
-  height: 30px;
+.mobileMenu__userBtn > .MuiAvatar-circle {
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,7 +37,6 @@
 }
 
 .mobileMenu__userBtn > button {
-  font-size: xx-large;
   background: none;
   border: none;
   margin-left: 10px;
@@ -49,6 +47,10 @@
   align-items: center;
   justify-content: center;
   border-radius: 2px;
+}
+
+.mobileMenu__userBtn > button > .MuiSvgIcon-root {
+  font-size: x-large;
 }
 
 .mobileMenu__signBtnsContainer {
@@ -88,6 +90,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.mobileMenu__header > button > .MuiSvgIcon-root {
+  font-size: xx-large;
 }
 
 .mobileMenu__body {
@@ -191,4 +197,34 @@
   width: 100%;
   color: #bd362f;
   margin-top: 5px;
+}
+
+@media only screen and (min-width: 375px) {
+  .mobileMenu__header {
+    height: 60px;
+  }
+  .mobileMenu__userBtn > span {
+    font-size: xx-large;
+  }
+  .mobileMenu__userBtn > button > .MuiSvgIcon-root {
+    font-size: xx-large;
+  }
+  .mobileMenu__body > form {
+    padding: 10px 13px;
+  }
+  .mobileMenu__body > .mobileMenu__userMenu > a,
+  .mobileMenu__body > .mobileMenu__userMenu > span {
+    font-size: x-large;
+  }
+  .mobileMenu__body > .mobileMenu__uploadBtn,
+  .mobileMenu__body > .mobileMenu__uploadBtn > .MuiButton-iconSizeMedium {
+    font-size: large;
+  }
+  .mobileMenu__body > .mobileMenu__sections > a {
+    font-size: x-large;
+  }
+  .mobileMenu__signBtnsContainer > .mobileMenu__signBtn {
+    padding: 5px 10px;
+    font-size: large;
+  }
 }

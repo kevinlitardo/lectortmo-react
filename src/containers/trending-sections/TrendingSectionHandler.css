@@ -13,4 +13,5 @@
 .trendingSectionHandler__files {
   min-height: 300px;
   position: relative;
+  width: 100%;
 }

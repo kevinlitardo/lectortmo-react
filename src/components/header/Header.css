@@ -1,5 +1,5 @@
 .header {
-  max-height: 12vh;
+  height: 55px;
   position: absolute;
   left: 0;
   top: 0;
@@ -31,15 +31,27 @@
   font-style: normal;
 }
 
-.header__hamburguer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.header__hamburguer > .MuiSvgIcon-root {
+.header > .MuiSvgIcon-root {
   color: #929a9e;
   font-size: xx-large;
   border-radius: 100%;
   padding: 2px;
+}
+
+@media only screen and (min-width: 375px) {
+  .header {
+    height: 60px;
+  }
+  .header > .MuiSvgIcon-root {
+    font-size: 35px;
+  }
+}
+
+@media only screen and (min-width: 425px) {
+  .header {
+    height: 60px;
+  }
+  .header > .MuiSvgIcon-root {
+    font-size: 35px;
+  }
 }

@@ -30,25 +30,20 @@ export function FileItem(props) {
   return (
     <>
       {fileModal && <FileModal hideFile={hideFile} props={props} />}
-      <div
-        className="fileItem"
-        style={{ backgroundImage: `url(${props.bg})` }}
-        onClick={showFile}
-      >
-        <div className="fileItem__header">
-          <h3>{props.title}</h3>
-          <span style={{ background: typeColor }}>{props.type}</span>
-          <span>
-            <IconStar className="fileItem__header-icon" />
-            {props.rating}
-          </span>
-        </div>
-        <div
-          className="fileItem__footer"
-          style={{ background: demographyColor }}
-        >
-          {props.demography === "Seinen" && <IconType />}
-          <h3>{props.demography}</h3>
+      <div className="fileItem" onClick={showFile}>
+        <div className="background" style={{ backgroundImage: `url(${props.bg})` }}>
+          <div className="fileItem__header">
+            <h3>{props.title}</h3>
+            <span style={{ background: typeColor }}>{props.type}</span>
+            <span>
+              <IconStar className="fileItem__header-icon" />
+              {props.rating}
+            </span>
+          </div>
+          <div className="fileItem__footer" style={{ background: demographyColor }}>
+            {props.demography === "Seinen" && <IconType />}
+            <h3>{props.demography}</h3>
+          </div>
         </div>
       </div>
     </>

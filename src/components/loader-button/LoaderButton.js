@@ -16,5 +16,5 @@ export default function LoaderButton() {
     borderRadius: "2px",
   };
 
-  return <Button style={buttonStyle}>Ver Más</Button>;
+  return <Button className='loaderButton' style={buttonStyle}>Ver Más</Button>;
 }

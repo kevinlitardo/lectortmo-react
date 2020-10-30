@@ -25,6 +25,7 @@ const MobileMenu = ({ hideMenu }) => {
   const showUserMenu = () => {
     setShowMenu(!showMenu);
   };
+
   const handleClick = () => {
     if (!user.username) setLogged(false);
     if (user.username) {
@@ -52,10 +53,10 @@ const MobileMenu = ({ hideMenu }) => {
       <div className="mobileMenu__header">
         {user.username && (
           <div className="mobileMenu__userBtn">
-            <Avatar alt={`${user.usernama} avatar`} src={user.userIMG} variant="rounded" />
+            <Avatar alt={`${user.usernama} avatar`} src={user.userIMG} variant="circle" />
             <span>{user.username}</span>
             <button onClick={showUserMenu}>
-              <PlayArrowIcon />
+              <PlayArrowIcon onClick={showUserMenu}/>
             </button>
           </div>
         )}

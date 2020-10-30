@@ -14,9 +14,7 @@ export default function Header({ showMenu }) {
           <span>ONLINE</span>
         </Link>
       </div>
-      <div className="header__hamburguer" onClick={showMenu}>
-        <MenuIcon />
-      </div>
+      <MenuIcon onClick={showMenu} />
     </div>
   );
 }

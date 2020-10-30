@@ -38,9 +38,9 @@ export default function TrendingMangasContainer({search}) {
   return (
     <div className="trendingContainer">
       <h2>Trending</h2>
-      <Grid container justify='space-evenly' spacing={1} style={{margin: '0', width: 'auto'}}>
+      <Grid container spacing={2}>
           {data.map((item, x) => (
-          <Grid item xs={6} key={x}>
+          <Grid item key={x} xs={6} sm={3}>
             <FileItem
               IconStar={StarIcon}
               IconType={FavoriteIcon}

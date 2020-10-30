@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import {FileItem} from "../../components/file-item/FileItem";
-import LoaderButton from "../../components/loader-button/LoaderButton";
 import Loading from "../../components/loading/Loading";
 
 import "./FilesMainContainer.css";
@@ -38,9 +37,9 @@ export default function FilesMainContainer({search}) {
   }
   return (
     <div className="mangasContainer">
-      <Grid container justify='space-evenly' spacing={1} style={{margin: '0', width: 'auto'}}>
+      <Grid container spacing={2}>
           {data.map((item, x) => (
-          <Grid item xs={6} key={x}>
+          <Grid item key={x} xs={6} sm={3}>
             <FileItem
               IconStar={StarIcon}
               IconType={FavoriteIcon}
@@ -59,9 +58,9 @@ export default function FilesMainContainer({search}) {
         ))}
       </Grid>
 
-      <div className="mangasContainer__button">
+      {/* <div className="mangasContainer__button">
         <LoaderButton />
-      </div>
+      </div> */}
     </div>
   );
 }

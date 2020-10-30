@@ -1,15 +1,20 @@
 .fileItem {
   position: relative;
   height: 220px;
-  width: 100%;
-  max-width: 140px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  width: auto;
   color: #f1f1f1;
   display: flex;
   flex-direction: column;
   border-radius: 2px;
+}
+
+.background {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
 }
 
 .fileItem__header {
@@ -26,7 +31,7 @@
   font-weight: normal;
   text-transform: uppercase;
   padding: 7px;
-  font-size: 11px;
+  font-size: small;
   line-height: 11px;
   text-shadow: 1px 1px 0 #000;
   white-space: nowrap;
@@ -43,7 +48,7 @@
   padding: 2px 5px;
   left: 3px;
   text-transform: uppercase;
-  font-size: 13px;
+  font-size: small;
   font-weight: 500;
   border-radius: 2px;
 }
@@ -53,9 +58,10 @@
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.6);
-  font-size: 15px;
+  font-size: medium;
   font-weight: 500;
   text-shadow: 1px 1px 0 #000;
+  position: relative;
 }
 
 .fileItem__header > span:nth-of-type(2) > .fileItem__header-icon {
@@ -79,7 +85,7 @@
 .fileItem__footer > h3 {
   font-weight: normal;
   text-shadow: 1px 1px 0 #000;
-  font-size: 17px;
+  font-size: larger;
   letter-spacing: 1px;
   position: absolute;
   left: 50%;
@@ -88,9 +94,12 @@
 }
 
 .fileItem__footer > .MuiSvgIcon-root {
+  position: relative;
   font-size: xx-large;
   left: 0;
 }
+
+/* ------------------------------------------------------ */
 
 .itemThumbnail {
   display: flex;
@@ -143,4 +152,38 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+}
+
+@media only screen and (min-width: 375px) {
+  .fileItem {
+    height: 240px;
+  }
+  .fileItem__footer > .MuiSvgIcon-root {
+    left: 10px;
+  }
+}
+@media only screen and (min-width: 425px) {
+  .fileItem {
+    height: 260px;
+  }
+  .fileItem__header > h3 {
+    font-size: medium;
+    line-height: 18px;
+  }
+  .fileItem__header > span:nth-of-type(1) {
+    font-size: medium;
+    margin-top: 5px;
+  }
+  .fileItem__header > span:nth-of-type(2) {
+    right: 3px;
+  }
+  .fileItem__footer {
+    height: 40px;
+  }
+  .fileItem__footer > h3 {
+    font-size: x-large;
+  }
+  .fileItem__footer > .MuiSvgIcon-root {
+    left: 10px;
+  }
 }

@@ -65,3 +65,26 @@
   margin-right: 10px;
   cursor: pointer;
 }
+
+@media only screen and (min-width: 375px) {
+  .loginPage {
+    width: 90%;
+    margin: 2rem auto 0;
+  }
+  .loginPage > h1 {
+    font-size: xx-large;
+  }
+  .loginPage > form > label {
+    font-size: larger;
+  }
+  .loginPage > form > p {
+    font-size: medium;
+  }
+}
+
+@media only screen and (min-width: 375px) {
+  .loginPage {
+    width: 85%;
+    margin: 2.5rem auto 1em;
+  }
+}

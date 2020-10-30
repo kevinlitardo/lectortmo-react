@@ -9,7 +9,6 @@ export default function Section({
   iconStyle,
   textStyle,
   bottonActive,
-  active,
 }) {
   const handleClick = () => {
     bottonActive(title);
