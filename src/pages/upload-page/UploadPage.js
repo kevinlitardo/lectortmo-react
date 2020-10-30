@@ -35,13 +35,16 @@ const useStyles = makeStyles(() => ({
     "& .MuiSelect-icon": {
       color: "#929a9e",
     },
+    "& .MuiChip-root" : {
+      borderRadius: '2px',
+    }
   },
 }));
 
 const tags = ["Acción", "Apocalíptico", "Artes Marciales", "Aventura", "Ciencia Ficción", "Comedia", "Cyberpunk", "Demonios", "Deporte", "Drama", "Ecchi", "Gore", "Harem", "Horror", "Isekai", "Magia", "Mecha", "Militar", "Misterio", "Psicológico", "Recuentos de vida", "Reencarnación", "Romance", "Samuraí", "Sobrenatural", "Superpoderes", "Supervivencia", "Tragedia", "Vida Escolar", "Webcomic"];
 
 export default function UploadPage() {
-  const {user}=useContext(UserContext)
+  const {user} = useContext(UserContext)
   const classes = useStyles();
   const [error, setError] = useState(false);
   const [uploaded, setUploaded] = useState(false);
@@ -80,7 +83,7 @@ export default function UploadPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(
+      await axios.post(
         `https://lectortmo-api.herokuapp.com/api/upload/${user.id}`,
         {
           title: formData.title,
@@ -97,9 +100,6 @@ export default function UploadPage() {
           }
         }
       );
-      console.log(res);
-
-      console.log(formData);
       setTagsName([]);
       setFormData({
         title: "",
@@ -247,7 +247,7 @@ export default function UploadPage() {
           startIcon={<PublishIcon />}
           type="submit"
         >
-          Upload
+          Subir
         </Button>
       </form>
     </div>

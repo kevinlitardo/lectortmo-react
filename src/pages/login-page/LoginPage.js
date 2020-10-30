@@ -89,7 +89,6 @@ export default function LoginPage(props) {
           password: userData.password,
         }
       );
-      console.log(res.data);
       setUser({
         username: res.data.username,
         id: res.data.id,

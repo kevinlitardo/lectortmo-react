@@ -91,3 +91,56 @@
   font-size: xx-large;
   left: 0;
 }
+
+.itemThumbnail {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  height: auto;
+  width: 100%;
+  position: relative;
+  border-radius: 2px;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
+.itemThumbnail > .itemData {
+  width: 65%;
+  display: flex;
+  align-items: center;
+}
+
+.itemThumbnail > .itemData > img {
+  height: 70px;
+  width: 50px;
+  margin-right: 5px;
+}
+
+.itemThumbnail > .itemData > h4 {
+  font-size: medium;
+  color: rgb(191, 191, 191);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.itemThumbnail > .itemButtons {
+  width: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.itemThumbnail > .deleteOptions {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0%;
+  top: 0%;
+  background: rgba(0, 0, 0, 0.87);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}

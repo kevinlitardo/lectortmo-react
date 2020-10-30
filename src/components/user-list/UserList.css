@@ -1,4 +1,5 @@
-.userProfileListsContainer {
+.userProfileListsContainer,
+.userProfileUploadsListsContainer {
   position: relative;
   width: 100%;
   height: auto;
@@ -7,7 +8,14 @@
   margin: 10px 0;
 }
 
-.userProfileListsContainer > button {
+.userProfileUploadsListsContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+.userProfileListsContainer > button,
+.userProfileUploadsListsContainer > button {
   width: 100%;
   height: auto;
   background: #bd362f;
@@ -15,7 +23,8 @@
   margin-bottom: 5px;
 }
 
-.userProfileListsContainer > button:hover {
-  background: hsl(3, 60%, 39%);
+.userProfileListsContainer > button:hover,
+.userProfileUploadsListsContainer > button:hover {
+  background: hsl(3, 30%, 64%);
   color: rgb(207, 207, 207);
 }

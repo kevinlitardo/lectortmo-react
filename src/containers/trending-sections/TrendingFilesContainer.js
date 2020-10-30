@@ -1,7 +1,7 @@
 import React ,{useState, useEffect} from "react";
 import axios from "axios";
 
-import FileItem from "../../components/file-item/FileItem";
+import {FileItem} from "../../components/file-item/FileItem";
 import Loading from "../../components/loading/Loading";
 
 import "./TrendingContainer.css";

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import FileItem from "../../components/file-item/FileItem";
+import {FileItem} from "../../components/file-item/FileItem";
 import LoaderButton from "../../components/loader-button/LoaderButton";
 import Loading from "../../components/loading/Loading";
 

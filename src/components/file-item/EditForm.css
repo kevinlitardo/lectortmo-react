@@ -1,0 +1,114 @@
+.uploadItem__editForm--success {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+}
+
+.uploadItem__editForm--success > .MuiSvgIcon-root {
+  font-size: xx-large;
+  color: rgb(41, 87, 186);
+}
+
+.uploadItem__editForm--success > h1 {
+  font-size: x-large;
+  color: rgb(41, 87, 186);
+  font-weight: normal;
+  margin-right: 10px;
+}
+
+.uploadItem__editForm {
+  display: inline-block;
+  width: 100%;
+  height: auto;
+  padding-top: 5px;
+  border-top: 2px solid #929a9e;
+  border-bottom: 2px solid #929a9e;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.uploadItem__editForm > .editForm__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+
+.uploadItem__editForm > .editForm__header > h1 {
+  color: #2957ba;
+  font-weight: 400;
+}
+
+.uploadItem__editForm > .editForm__header > .MuiSvgIcon-root {
+  color: #929a9e;
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: xx-large;
+}
+
+.uploadItem__editForm > form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.uploadItem__editForm > form > label {
+  display: inline-block;
+  width: fit-content;
+  color: #929a9e;
+  font-size: large;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  border-left: 2px solid #2957ba;
+  padding-left: 7px;
+}
+
+.editForm__errorMessage {
+  width: 100%;
+  height: auto;
+  margin: 5px 0;
+  background: rgb(160, 33, 33);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.editForm__uploadedMessage {
+  width: 100%;
+  height: auto;
+  margin: 5px 0;
+  background: #1b3879;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.editForm__errorMessage > h3,
+.editForm__uploadedMessage > h3 {
+  color: #f1f1f1;
+  font-weight: normal;
+  font-size: larger;
+  margin: 10px;
+  display: inline-block;
+  width: auto;
+}
+
+.editForm__errorMessage > .MuiSvgIcon-root,
+.editForm__uploadedMessage > .MuiSvgIcon-root {
+  color: #f1f1f1;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.uploadItem__editForm > form > .editForm__uploadBtn {
+  margin-top: 10px;
+  background: #2957ba;
+  color: #f1f1f1;
+  font-size: medium;
+}
+
+.uploadItem__editForm > form > .editForm__uploadBtn:hover {
+  background: #1b3879;
+}
