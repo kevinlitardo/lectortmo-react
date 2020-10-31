@@ -45,11 +45,9 @@ const FileModal = ({ hideFile, props }) => {
             {props.rating}
           </span>
           <img src={props.bg} alt={props.title} className="fileModal__image" />
-          <div className="fileModal__demography">
-            <span style={{ background: demographyColor }}>
-              {props.demography === "Seinen" && <IconType />}
-              {props.demography}
-            </span>
+          <div className="fileModal__demography" style={{ background: demographyColor }}>
+            {props.demography === "Seinen" && <IconType />}
+            <span >{props.demography}</span>
           </div>
         </div>
 

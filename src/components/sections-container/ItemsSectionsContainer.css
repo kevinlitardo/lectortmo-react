@@ -13,7 +13,7 @@
   height: auto;
   border-radius: 2px;
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
 }
 
@@ -27,6 +27,10 @@
   font-weight: normal;
   box-shadow: none;
   position: relative;
+}
+
+.uploadsItemsContainer > .MuiButtonBase-root {
+  font-size: small;
 }
 
 .itemsSectionsContainer > .MuiButtonBase-root:hover,
@@ -47,5 +51,14 @@
 @media only screen and (min-width: 375px) {
   .itemsSectionsContainer > .MuiButtonBase-root > span {
     font-size: small;
+  }
+  .uploadsItemsContainer > .MuiButtonBase-root {
+    font-size: medium;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .itemsSectionsContainer {
+    grid-template-columns: repeat(6, 1fr);
   }
 }

@@ -74,3 +74,25 @@
   margin-right: 10px;
   cursor: pointer;
 }
+
+@media only screen and (min-width: 375px) {
+  .uploadPage > form > label,
+  .uploadPage > form > .MuiInputBase-root {
+    font-size: larger;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .uploadPage > form {
+    width: 70%;
+    margin: auto;
+  }
+  .uploadPage
+    > form
+    > .MuiInputBase-root
+    > .MuiSelect-root
+    > div
+    > .MuiChip-root {
+    font-size: medium;
+  }
+}

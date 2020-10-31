@@ -343,16 +343,3 @@ function UploadItemEditForm (props) {
     </div>
   );
 }
-
-
-
-
-
-
-export default function UploadPage() {
-  
-
-  
-
-  
-}

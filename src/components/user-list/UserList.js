@@ -59,10 +59,10 @@ export function UserList({activeList, setList, id}) {
       <Button variant="contained" onClick={handleClick}>
         Cerrar lista
       </Button>
-      <Grid container justify='space-evenly' spacing={1} style={{margin: '0', width: 'auto'}}>
+      <Grid container spacing={2}>
         {list.length === 0 ? <h1 style={textStyle}>Aún no has agrado nada a tu lista!</h1> : 
           list.map((item, x) => (
-          <Grid item xs={6} key={x}>
+          <Grid item key={x} xs={6} sm={3} md={2}>
             <FileItem
               IconStar={StarIcon}
               IconType={FavoriteIcon}

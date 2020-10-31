@@ -60,3 +60,19 @@
 .userProfile__edit > form > button:hover {
   background: #1b3879;
 }
+
+@media only screen and (min-width: 375px) {
+  .userProfile__edit > form > label {
+    font-size: larger;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .userProfile__edit > form,
+  .userProfile__edit > .userProfile__edit__header {
+    width: 70%;
+    margin: auto;
+  }
+  .userProfile__edit > form > .MuiInputBase-root {
+    font-size: larger;
+  }
+}

@@ -37,3 +37,9 @@
     font-size: small;
   }
 }
+
+@media only screen and (min-width: 768px) {
+  .fileAddListItems {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}

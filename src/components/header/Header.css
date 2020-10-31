@@ -54,4 +54,29 @@
   .header > .MuiSvgIcon-root {
     font-size: 35px;
   }
+
+  .header__title > a {
+    font-size: larger;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .header {
+    height: 65px;
+  }
+  .header__title > a {
+    font-size: x-large;
+  }
+  .header__title > a > strong {
+    font-size: x-large;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .header {
+    padding: 20px 15px;
+  }
+  .header > .MuiSvgIcon-root {
+    display: none;
+  }
 }

@@ -44,8 +44,9 @@
 
 .fileModal__container > .fileModal__type {
   display: inline-block;
-  width: 100%;
-  height: 8vh;
+  width: 75%;
+  margin: auto;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,9 +58,11 @@
 }
 
 .fileModal__container > .fileModal__image-container {
-  height: auto;
-  width: 100%;
+  height: 280px;
+  width: 75%;
+  margin: auto;
   position: relative;
+  border-radius: 2px;
   border-radius: 2px;
 }
 
@@ -85,31 +88,35 @@
   width: 100%;
   height: 100%;
 }
-
-.fileModal__container
-  > .fileModal__image-container
-  > .fileModal__demography
-  > span {
+.fileModal__container > .fileModal__image-container > .fileModal__demography {
   position: absolute;
   z-index: 990;
   bottom: 0;
   width: 100%;
-  height: 8vh;
+  height: 40px;
   display: flex;
   align-items: center;
-  justify-content: center;
   color: #f1f1f1;
+}
+.fileModal__container
+  > .fileModal__image-container
+  > .fileModal__demography
+  > span {
   font-size: x-large;
   text-shadow: 1px 1px 0 #000;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translate(-50%);
 }
 
 .fileModal__container
   > .fileModal__image-container
   > .fileModal__demography
-  > span
   > .MuiSvgIcon-root {
-  margin-right: 10px;
   font-size: xx-large;
+  position: absolute;
+  left: 10px;
 }
 
 .fileModal__container > .fileModal__title {
@@ -208,7 +215,6 @@
 }
 
 .fileModal__container > a {
-  color: red;
   display: inline-block;
   width: 100%;
   height: auto;
@@ -226,9 +232,108 @@
   .fileModal {
     padding: 30px;
   }
+  .fileModal__container > .fileModal__type {
+    height: 35px;
+  }
+  .fileModal__container > .fileModal__image-container {
+    height: 320px;
+  }
+  .fileModal__container
+    > .fileModal__image-container
+    > .fileModal__demography
+    > .MuiSvgIcon-root {
+    left: 15px;
+  }
 }
 @media only screen and (min-width: 425px) {
   .fileModal {
     padding: 45px;
+  }
+  .fileModal__container > .fileModal__image-container {
+    height: 340px;
+  }
+  .fileModal__container
+    > .fileModal__image-container
+    > .fileModal__demography
+    > .MuiSvgIcon-root {
+    left: 20px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .fileModal__container {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 10px;
+    grid-template-areas:
+      "type type type type title title title title title title title title"
+      "image image image image desc desc desc desc desc desc desc desc"
+      "tags tags tags tags tags tags tags tags tags tags tags tags"
+      "status status status status status status status status status status status status"
+      "button button button button button button button button button button button button";
+  }
+  .fileModal__container > .fileModal__type {
+    grid-area: type;
+    width: 100%;
+    height: 35px;
+    font-size: x-large;
+    margin-bottom: 10px;
+    margin: 0;
+  }
+  .fileModal__container > .fileModal__image-container {
+    grid-area: image;
+    height: auto;
+    width: 100%;
+    position: relative;
+    border-radius: 2px;
+    margin-top: 0;
+  }
+  .fileModal__container
+    > .fileModal__image-container
+    > .fileModal__demography
+    > .MuiSvgIcon-root {
+    left: 25px;
+  }
+  .fileModal__container > .fileModal__title {
+    grid-area: title;
+    text-align: center;
+    margin: 0;
+  }
+  .fileModal__container > .fileModal__description {
+    grid-area: desc;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .fileModal__container > .fileModal__description > p {
+    max-height: unset;
+    background: #343a40;
+    border-radius: 2px;
+    padding: 5px;
+  }
+  .fileModal__container > .fileModal__tags {
+    grid-area: tags;
+    margin: 0;
+  }
+  .fileModal__container > .fileModal__tags > span,
+  .fileModal__container > .fileModal__status > span {
+    font-size: larger;
+  }
+  .fileModal__container > .fileModal__status {
+    grid-area: status;
+    margin: 0;
+  }
+  .fileModal__container > a {
+    grid-area: button;
+    margin: 0;
+  }
+  .fileModal__container > .fileModal__tags > h4,
+  .fileModal__status > h4,
+  .fileModal__description > h4 {
+    font-size: x-large;
   }
 }

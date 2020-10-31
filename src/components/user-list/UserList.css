@@ -14,17 +14,28 @@
   row-gap: 5px;
 }
 
+.userProfileListsContainer > button {
+  margin-bottom: 10px;
+}
+
 .userProfileListsContainer > button,
 .userProfileUploadsListsContainer > button {
   width: 100%;
   height: auto;
   background: #bd362f;
   color: #f1f1f1;
-  margin-bottom: 5px;
 }
 
 .userProfileListsContainer > button:hover,
 .userProfileUploadsListsContainer > button:hover {
   background: hsl(3, 30%, 64%);
   color: rgb(207, 207, 207);
+}
+
+@media only screen and (min-width: 768px) {
+  .userProfileListsContainer > button,
+  .userProfileUploadsListsContainer > button {
+    height: 40px;
+    font-size: large;
+  }
 }

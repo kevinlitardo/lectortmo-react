@@ -8,6 +8,7 @@
   justify-content: space-evenly;
   align-items: center;
   margin-top: 1rem;
+  width: 100%;
 }
 
 .trendingSectionHandler__files {

@@ -39,7 +39,7 @@ export default function FilesMainContainer({search}) {
     <div className="mangasContainer">
       <Grid container spacing={2}>
           {data.map((item, x) => (
-          <Grid item key={x} xs={6} sm={3}>
+          <Grid item key={x} xs={6} sm={3} md={2}>
             <FileItem
               IconStar={StarIcon}
               IconType={FavoriteIcon}

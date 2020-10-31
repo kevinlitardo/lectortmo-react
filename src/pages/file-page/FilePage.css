@@ -278,3 +278,111 @@
     padding: 25px;
   }
 }
+
+@media only screen and (min-width: 768px) {
+  .filePage__container {
+    padding: 10px;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
+    grid-template-areas:
+      "type type type type title title title title title title title title"
+      "image image image image desc desc desc desc desc desc desc desc"
+      "status status status status status status rating rating rating rating rating rating"
+      "tags tags tags tags tags tags tags tags tags tags tags tags"
+      "list list list list list list list list list list list list"
+      "caps caps caps caps caps caps caps caps caps caps caps caps ";
+  }
+
+  .filePage__container > .filePage__type {
+    grid-area: type;
+    width: 100%;
+    margin: 0;
+  }
+
+  .filePage__container > .filePage__image-container {
+    grid-area: image;
+    width: 100%;
+  }
+
+  .filePage__container > .filePage__title {
+    grid-area: title;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
+
+  .filePage__container > .filePage__description {
+    grid-area: desc;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+  .filePage__container > .filePage__description > p {
+    font-size: larger;
+  }
+
+  .filePage__container > .filePage__status {
+    grid-area: status;
+    margin: 0;
+  }
+  .filePage__container > .filePage__status > span {
+    font-size: larger;
+  }
+
+  .filePage__container > .filePage__rating {
+    grid-area: rating;
+    margin: 0;
+    justify-content: space-evenly;
+  }
+
+  .filePage__container > .filePage__tags {
+    grid-area: tags;
+    margin: 0;
+  }
+  .filePage__container > .filePage__tags > span {
+    font-size: larger;
+  }
+
+  .filePage__container > .filePage__addListItems {
+    grid-area: list;
+    margin: 0;
+  }
+
+  .filePage__container > .filePage__caps {
+    grid-area: caps;
+    margin: 0;
+  }
+
+  .filePage__caps > .filePage__caps--container > .cap > .buttons {
+    justify-content: center;
+    column-gap: 25px;
+  }
+
+  .filePage__container
+    > .filePage__image-container
+    > .filePage__demography
+    > span {
+    height: 45px;
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  .filePage__container
+    > .filePage__image-container
+    > .filePage__demography
+    > span
+    > .MuiSvgIcon-root {
+    position: absolute;
+    left: 20px;
+  }
+
+  .filePage__container > .filePage__tags > h4,
+  .filePage__status > h4,
+  .filePage__caps > h4,
+  .filePage__description > h4,
+  .filePage__addListItems > h4 {
+    font-size: larger;
+  }
+}

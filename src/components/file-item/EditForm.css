@@ -112,3 +112,27 @@
 .uploadItem__editForm > form > .editForm__uploadBtn:hover {
   background: #1b3879;
 }
+
+@media only screen and (min-width: 375px) {
+  .uploadItem__editForm > form > label {
+    font-size: larger;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .uploadItem__editForm > .editForm__header,
+  .uploadItem__editForm > form {
+    width: 70%;
+    margin: auto;
+  }
+  .uploadItem__editForm > form > .MuiInputBase-root {
+    font-size: larger;
+  }
+  .uploadItem__editForm
+    > form
+    > .MuiInputBase-root
+    > .MuiSelect-root
+    > div
+    > .MuiChip-root {
+    font-size: medium;
+  }
+}

@@ -54,8 +54,8 @@ const MobileMenu = ({ hideMenu }) => {
         {user.username && (
           <div className="mobileMenu__userBtn">
             <Avatar alt={`${user.usernama} avatar`} src={user.userIMG} variant="circle" />
-            <span>{user.username}</span>
             <button onClick={showUserMenu}>
+              <span>{user.username}</span>
               <PlayArrowIcon onClick={showUserMenu}/>
             </button>
           </div>

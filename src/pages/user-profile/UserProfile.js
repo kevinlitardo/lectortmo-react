@@ -36,6 +36,7 @@ export default function UserProfile() {
           src={user.userIMG !== '' ? user.userIMG : defaultUser}
           alt={user.username}
           />
+        <h4>Nombre de usuario</h4>
         <h2>{user.username}</h2>
       </div>
 
@@ -67,6 +68,7 @@ const useStyles = makeStyles(() => ({
       outline: "none",
       border: "none",
       margin: "5px 0 10px 0",
+      width: '100%'
     },
     "& .MuiInput-underline:after": {
       borderBottomColor: "#929a9e",
