@@ -321,6 +321,11 @@
   }
   .filePage__container > .filePage__description > p {
     font-size: larger;
+    max-height: unset;
+    height: 100%;
+    background: #343a40;
+    border-radius: 2px;
+    padding: 5px;
   }
 
   .filePage__container > .filePage__status {
@@ -385,4 +390,103 @@
   .filePage__addListItems > h4 {
     font-size: larger;
   }
+}
+
+@media only screen and (min-width: 1024px) {
+  .filePage__container > .filePage__status > span > .MuiSvgIcon-root {
+    font-size: xx-large;
+  }
+  .filePage__container > .filePage__status > span {
+    font-size: x-large;
+  }
+  .filePage__container > .filePage__rating > span {
+    font-size: x-large;
+  }
+
+  .filePage__container > .filePage__tags > h4,
+  .filePage__status > h4,
+  .filePage__caps > h4,
+  .filePage__description > h4,
+  .filePage__addListItems > h4 {
+    font-size: x-large;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .filePage__container > .filePage__type {
+    height: 45px;
+    font-size: xx-large;
+  }
+
+  .filePage__container
+    > .filePage__image-container
+    > .filePage__demography
+    > span {
+    height: 55px;
+    font-size: xx-large;
+  }
+  .filePage__container
+    > .filePage__image-container
+    > .filePage__demography
+    > span
+    > .MuiSvgIcon-root {
+    font-size: 40px;
+    left: 50px;
+  }
+  .filePage__container > .filePage__description > p {
+    font-size: x-large;
+  }
+  .filePage__container > .filePage__status > span,
+  .filePage__container > .filePage__rating > span {
+    font-size: xx-large;
+  }
+  .filePage__container > .filePage__rating > span > .MuiSvgIcon-root {
+    font-size: xx-large;
+  }
+  .filePage__container
+    > .filePage__rating
+    > .filePage__rating--buttons
+    > .MuiIconButton-root {
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+  }
+  .filePage__container
+    > .filePage__rating
+    > .filePage__rating--buttons
+    > .MuiIconButton-root
+    > .MuiIconButton-label
+    > .MuiSvgIcon-root {
+    font-size: 35px !important;
+  }
+  .filePage__container > .filePage__tags > span {
+    font-size: x-large;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  .filePage__caps > .filePage__caps--container > .cap {
+    margin-bottom: 10px;
+    height: 55px;
+  }
+  .filePage__caps > .filePage__caps--container > .cap > span {
+    font-size: x-large;
+    margin-left: 10px;
+  }
+  .filePage__caps
+    > .filePage__caps--container
+    > .cap
+    > .buttons
+    > .MuiSvgIcon-root {
+    font-size: 40px !important;
+  }
+  .filePage__caps
+    > .filePage__caps--container
+    > .cap
+    > .buttons
+    > .MuiSvgIcon-root {
+    font-size: xx-large;
+  }
+  /* .filePage__container > a {
+    font-size: x-large;
+  } */
 }

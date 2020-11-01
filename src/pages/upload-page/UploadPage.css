@@ -96,3 +96,31 @@
     font-size: medium;
   }
 }
+@media only screen and (min-width: 1440px) {
+  .uploadPage > form {
+    width: 60%;
+  }
+  .uploadPage
+    > form
+    > .MuiInputBase-root
+    > .MuiSelect-root
+    > div
+    > .MuiChip-root {
+    font-size: large;
+  }
+  .uploadPage > form > label,
+  .uploadPage > form > .MuiInputBase-root {
+    font-size: 27px;
+  }
+  .uploadPage > form > label {
+    font-size: 27px;
+  }
+  .uploadPage
+    > form
+    > .MuiInputBase-root
+    > .MuiSelect-root
+    > div
+    > .MuiChip-root {
+    font-size: large;
+  }
+}

@@ -311,6 +311,7 @@
   }
   .fileModal__container > .fileModal__description > p {
     max-height: unset;
+    height: 100%;
     background: #343a40;
     border-radius: 2px;
     padding: 5px;
@@ -334,6 +335,50 @@
   .fileModal__container > .fileModal__tags > h4,
   .fileModal__status > h4,
   .fileModal__description > h4 {
+    font-size: x-large;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .fileModal__container {
+    width: 85%;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .fileModal__container > .fileModal__type {
+    height: 45px;
+    font-size: xx-large;
+  }
+
+  .fileModal__container > .fileModal__image-container > .fileModal__demography {
+    height: 55px;
+  }
+  .fileModal__container
+    > .fileModal__image-container
+    > .fileModal__demography
+    > span {
+    font-size: xx-large;
+  }
+  .fileModal__container
+    > .fileModal__image-container
+    > .fileModal__demography
+    > .MuiSvgIcon-root {
+    font-size: 40px;
+    left: 50px;
+  }
+  .fileModal__container > .fileModal__title {
+    font-size: xx-large;
+  }
+  .fileModal__container > .fileModal__description > p {
+    font-size: x-large;
+  }
+  .fileModal__container > .fileModal__tags > span,
+  .fileModal__container > .fileModal__status > span {
+    font-size: x-large;
+  }
+  .fileModal__container > .fileModal__status > span > .MuiSvgIcon-root {
+    font-size: xx-large;
+  }
+  .fileModal__container > a {
     font-size: x-large;
   }
 }

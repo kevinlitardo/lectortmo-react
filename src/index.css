@@ -21,7 +21,7 @@ code {
 }
 
 body > .MuiPopover-root > .MuiPaper-root > .MuiList-root {
-  max-height: "317px";
+  max-height: 317px;
 }
 
 body > .MuiPopover-root > .MuiPaper-root > .MuiList-padding {
@@ -40,4 +40,14 @@ body
   > .MuiList-root
   > .MuiListItem-root.Mui-selected {
   background: rgba(0, 0, 0, 0.452);
+}
+@media only screen and (min-width: 1024px) {
+  body > .MuiPopover-root > .MuiPaper-root > .MuiList-root > .MuiListItem-root {
+    font-size: large !important;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  body > .MuiPopover-root > .MuiPaper-root > .MuiList-root > .MuiListItem-root {
+    font-size: x-large !important;
+  }
 }

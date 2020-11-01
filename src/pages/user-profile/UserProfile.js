@@ -27,6 +27,12 @@ export default function UserProfile() {
   const closeModal = ()=>{
     setEditModal(false)
   }
+  const handleClick = ()=>{
+    setEditModal(true)
+    setTimeout(() => {
+      window.scrollBy(0, 520)
+    }, 100);
+  }
   
   return (
     <div className="userProfile__container">
@@ -49,10 +55,10 @@ export default function UserProfile() {
       {activeUpload && <UserUploadList activeUpload={activeUpload} id={user.id} setUpload={setUpload}/>}
       
       <h4>Editar perfil</h4>
-      {editModal && <UserProfileEditForm closeModal={closeModal}/>}
-      <Button variant="contained" startIcon={<EditIcon />} onClick={()=>setEditModal(true)} className='edit_button'>
+      <Button variant="contained" startIcon={<EditIcon />} onClick={handleClick} className='edit_button'>
         Editar Perfil
       </Button>
+      {editModal && <UserProfileEditForm closeModal={closeModal}/>}
     </div>
   );
 }
@@ -337,7 +343,9 @@ export function UserProfileEditForm({closeModal}) {
           )}
 
           <InputLabel htmlFor="image">Foto de perfil</InputLabel>
-          <input id="image" name="image" type="file" onChange={handleFileChange}/>
+          <input id="image" name="image" type="file" onChange={handleFileChange}
+            style={{display: 'inline-block', width: '100%'}}
+          />
 
           <InputLabel htmlFor="new_password">Nueva Contraseña (Opcional)</InputLabel>
           <Input

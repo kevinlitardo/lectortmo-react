@@ -73,23 +73,68 @@
 
 @media only screen and (min-width: 768px) {
   .userProfile__data {
-    display: flex;
-    flex-direction: column;
     height: auto;
     width: 100%;
+    display: grid;
+    align-items: center;
+    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "badge h4"
+      "image h2";
   }
 
   .userProfile__data > span {
+    grid-area: badge;
     height: 35px;
-    width: 30%;
+    width: 60%;
+    margin: 0 auto;
   }
   .userProfile__data > img {
+    grid-area: image;
     margin: 10px auto;
-    width: 30%;
-    height: 30%;
+    width: 60%;
+    height: auto;
+    margin: 0 auto;
+  }
+  .userProfile__data > h4 {
+    grid-area: h4;
+    margin: 0;
+  }
+  .userProfile__data > h2 {
+    grid-area: h2;
+    align-self: flex-start;
   }
   .userProfile__container > h4,
   .userProfile__data > h4 {
     font-size: x-large;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .userProfile__data > span,
+  .userProfile__data > img {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .userProfile__data > span,
+  .userProfile__data > img {
+    width: 55%;
+  }
+  .userProfile__data > span {
+    font-size: xx-large;
+    height: 45px;
+  }
+  .userProfile__container > button {
+    font-size: x-large;
+  }
+  .userProfile__container
+    > button
+    > .MuiButton-label
+    > .MuiButton-startIcon
+    > .MuiSvgIcon-root {
+    font-size: xx-large;
   }
 }

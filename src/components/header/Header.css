@@ -90,8 +90,6 @@
     display: inline-block;
     width: 300px;
     height: auto;
-    margin-bottom: 20px;
-    margin-top: 20px;
     padding: 7px 10px;
     border-radius: 2px;
     background: #f1f1f1;
@@ -206,5 +204,53 @@
     color: #f1f1f1;
     border-left: 3px solid #2957ba;
     padding-left: 10px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .header {
+    height: 80px;
+    padding: 20px 80px;
+  }
+  .header__title > a {
+    font-size: xx-large;
+  }
+  .header__title > a > strong {
+    font-size: xx-large;
+  }
+
+  .header > form {
+    width: 400px;
+  }
+  .header > form > input {
+    font-size: larger;
+  }
+  .header > .header__uploadBtn {
+    width: 160px;
+    font-size: larger;
+  }
+
+  /* ----- USER BUTTONS ----- */
+  .header__userBtn > .MuiAvatar-circle {
+    width: 50px;
+    height: 50px;
+  }
+  .header__userBtn > button,
+  .header__userBtn > button > span {
+    font-size: xx-large;
+  }
+  .header__userBtn > button > .MuiSvgIcon-root {
+    font-size: xx-large;
+  }
+
+  /* ----- USER MENU ----- */
+  .header__userMenu {
+    width: 200px;
+  }
+  .header__userMenu > a,
+  .header__userMenu > span {
+    font-size: x-large;
+  }
+  .header__userMenu > a > .MuiSvgIcon-root {
+    font-size: larger;
   }
 }

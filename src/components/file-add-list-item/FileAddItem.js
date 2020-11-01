@@ -36,12 +36,11 @@ export default function FileAddItem({Icon, list, title, color, fileId, prevList}
   return (
     <Button 
       aria-label={title} 
-      size='medium'
       variant="contained" 
       onClick={handleClick}
       style={prevList === list ? StyleActive : null}
       >
-      <Icon style={{color: color, fontSize: 'xx-large'}} />
+      <Icon style={{color: color}} />
       <span>{title}</span>
     </Button>
   )

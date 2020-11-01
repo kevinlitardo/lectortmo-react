@@ -76,3 +76,34 @@
     font-size: larger;
   }
 }
+@media only screen and (min-width: 1024px) {
+  .userProfile__edit > form > #image {
+    font-size: large;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .userProfile__edit > form,
+  .userProfile__edit > .userProfile__edit__header {
+    width: 60%;
+    margin: auto;
+  }
+  .userProfile__edit > .userProfile__edit__header > h1 {
+    font-size: 40px;
+  }
+  .userProfile__edit
+    > .userProfile__edit__header
+    > .MuiIconButton-root
+    > .MuiIconButton-label
+    > .MuiSvgIcon-root {
+    font-size: 45px !important;
+  }
+  .userProfile__edit > form > .MuiInputBase-root {
+    font-size: x-large;
+  }
+  .userProfile__edit > form > label {
+    font-size: x-large;
+  }
+  .userProfile__edit > form > #image {
+    font-size: x-large;
+  }
+}

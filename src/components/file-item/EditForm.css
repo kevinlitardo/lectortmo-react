@@ -136,3 +136,33 @@
     font-size: medium;
   }
 }
+@media only screen and (min-width: 1440px) {
+  .uploadItem__editForm > .editForm__header,
+  .uploadItem__editForm > form {
+    width: 60%;
+    margin: auto;
+  }
+  .uploadItem__editForm > .editForm__header > h1 {
+    font-size: 40px;
+  }
+  .uploadItem__editForm > .editForm__header > .MuiSvgIcon-root {
+    font-size: 45px;
+  }
+  .uploadItem__editForm > form > .MuiInputBase-root {
+    font-size: x-large;
+  }
+  .uploadItem__editForm
+    > form
+    > .MuiInputBase-root
+    > .MuiSelect-root
+    > div
+    > .MuiChip-root {
+    font-size: large;
+  }
+  .uploadItem__editForm > form > label {
+    font-size: x-large;
+  }
+  .uploadItem__editForm > form > .editForm__uploadBtn {
+    font-size: x-large;
+  }
+}

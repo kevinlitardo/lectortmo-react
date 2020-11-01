@@ -13,7 +13,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 import GetAppIcon from "@material-ui/icons/GetApp";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
-import LoaderButton from "../../components/loader-button/LoaderButton";
+// import LoaderButton from "../../components/loader-button/LoaderButton";
 import Loading from "../../components/loading/Loading";
 
 export default function FilePage(props) {
@@ -134,7 +134,7 @@ export default function FilePage(props) {
         <h4>Capítulos</h4>
         <div className="filePage__caps--container">
           <div className="cap">
-            <span>Capítulo 3</span>
+            <span>Capítulo 1</span>
             <div className="buttons">
               <GetAppIcon />
               <PlayArrowIcon />
@@ -148,13 +148,13 @@ export default function FilePage(props) {
             </div>
           </div>
           <div className="cap">
-            <span>Capítulo 1</span>
+            <span>Capítulo 3</span>
             <div className="buttons">
               <GetAppIcon />
               <PlayArrowIcon />
             </div>
           </div>
-          <LoaderButton />
+          {/* <LoaderButton /> */}
         </div>
       </div>
     </div>

@@ -12,14 +12,6 @@ import StarIcon from "@material-ui/icons/Star";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import { Grid } from '@material-ui/core';
 
-const textStyle = {
-  color: '#2957ba',
-  marginTop: '10px',
-  fontSize: 'x-large',
-  fontWeight: 'normal',
-  textAlign: 'center'
-}
-
 export function UserList({activeList, setList, id}) {
   const { user } = useContext(UserContext);
   const [list, setListData] = useState([])
@@ -60,7 +52,7 @@ export function UserList({activeList, setList, id}) {
         Cerrar lista
       </Button>
       <Grid container spacing={2}>
-        {list.length === 0 ? <h1 style={textStyle}>Aún no has agrado nada a tu lista!</h1> : 
+        {list.length === 0 ? <div className="emptyList"><h3>Aún no has agrado nada a tu lista!</h3></div> : 
           list.map((item, x) => (
           <Grid item key={x} xs={6} sm={3} md={2}>
             <FileItem
@@ -125,7 +117,7 @@ export function UserUploadList({activeUpload, setUpload, id}) {
       <Button variant="contained" onClick={handleClick}>
         Cerrar lista
       </Button>
-        {list.length === 0 ? <h1 style={textStyle}>No tienes archivos subidos en esta categoría!</h1> : 
+        {list.length === 0 ? <div className="emptyList"><h3>No tienes archivos subidos en esta categoría!</h3></div> : 
           list.map((item) => (
             <UploadItem
               key={item._id}

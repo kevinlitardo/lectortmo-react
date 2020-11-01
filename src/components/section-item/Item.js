@@ -20,12 +20,11 @@ export function Item({ Icon, title, list, color, setList, activeList}) {
   return (
     <Button 
       aria-label={title} 
-      size='medium'
       variant="contained" 
       onClick={handleClick}
       style={activeList === list ? StyleActive : null}
       >
-      <Icon style={{color: color, fontSize: 'xx-large'}} />
+      <Icon style={{color: color}} />
       <span >{title}</span>
     </Button>
   );

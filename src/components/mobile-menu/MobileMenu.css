@@ -46,6 +46,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: large;
+  max-width: 200px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .mobileMenu__userBtn > button > .MuiSvgIcon-root {
@@ -228,10 +233,19 @@
     padding: 5px 10px;
     font-size: large;
   }
+  .mobileMenu__userBtn > button,
+  .mobileMenu__userBtn > button > span {
+    max-width: 250px;
+    font-size: larger;
+  }
 }
 
 @media only screen and (min-width: 768px) {
   .mobileMenu__header {
     height: 65px;
+  }
+  .mobileMenu__userBtn > button,
+  .mobileMenu__userBtn > button > span {
+    max-width: 450px;
   }
 }

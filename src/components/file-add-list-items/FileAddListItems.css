@@ -32,6 +32,10 @@
   row-gap: 3px;
 }
 
+.fileAddListItems > .MuiButtonBase-root > span > .MuiSvgIcon-root {
+  font-size: xx-large;
+}
+
 @media only screen and (min-width: 375px) {
   .fileAddListItems > .MuiButtonBase-root > span {
     font-size: small;
@@ -41,5 +45,14 @@
 @media only screen and (min-width: 768px) {
   .fileAddListItems {
     grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .fileAddListItems > .MuiButtonBase-root > span {
+    font-size: large;
+  }
+  .fileAddListItems > .MuiButtonBase-root > span > .MuiSvgIcon-root {
+    font-size: 40px;
   }
 }

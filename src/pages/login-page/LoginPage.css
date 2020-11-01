@@ -88,3 +88,13 @@
     margin: 2.5rem auto 1em;
   }
 }
+
+@media only screen and (min-width: 1024px) {
+  .loginPage {
+    position: relative;
+    width: 70%;
+    margin: auto;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

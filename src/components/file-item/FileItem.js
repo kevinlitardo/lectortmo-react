@@ -84,7 +84,7 @@ export function UploadItem (props) {
         <h4>{props.title}</h4>
       </div>
       <div className="itemButtons">
-        <IconButton onClick={handleEdit} aria-label='edit' style={{background: '#2957ba', marginRight: '10px'}}>
+        <IconButton onClick={handleEdit} aria-label='edit' style={{background: '#2957ba'}}>
           <EditIcon style={{color: '#f1f1f1', fontSize: 'large'}}/>
         </IconButton>
         <IconButton onClick={handleDelete} aria-label='delete' style={{background: '#bd362f'}}>

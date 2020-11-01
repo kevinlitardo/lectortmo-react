@@ -40,6 +40,7 @@ export default function Header({ showMenu }) {
       token: null
     })
     window.localStorage.clear()
+    setUserMenu(false)
     history.push('/')
   };
 
@@ -102,7 +103,7 @@ export default function Header({ showMenu }) {
             <Link to="/" onClick={()=>{setUserMenu(false)}}>
               <GroupIcon /> Mis grupos
             </Link>
-            <span onClick={handleLogout} onClick={()=>{setUserMenu(false)}}>
+            <span onClick={handleLogout}>
               <ExitToAppIcon /> Desconectar
             </span>
           </div>
