@@ -14,6 +14,7 @@ import RegisterPage from "./pages/register-page/RegisterPage";
 import FilePage from "./pages/file-page/FilePage";
 import UserProfile from "./pages/user-profile/UserProfile";
 import {UserList} from "./components/user-list/UserList";
+import Alert from "./Alert";
 
 import "./App.css";
 import Loading from "./components/loading/Loading";
@@ -34,6 +35,7 @@ function App() {
   return (
     <Router>
       <div className="app">
+        <Alert />
         <Header showMenu={showMenu} />
         {mobileMenu && <MobileMenu hideMenu={hideMenu} />}
         <Route path="/" exact component={SectionsHandler} />

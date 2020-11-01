@@ -23,7 +23,7 @@ export default function FilePage(props) {
   const [color, setColor] = useState("");
   const [prevList, setPrevList] = useState(null)
 
-  const { typeColor, demographyColor } = useColor(file.type, file.demography);
+  const { typeColor, demographyColor, ecchi } = useColor(file.type, file.demography, file.tags);
   const type = props.match.params.type;
   const title = props.match.params.title.replace(/[-]/g, " ");
 
@@ -55,7 +55,8 @@ export default function FilePage(props) {
     return <Loading />;
   }
   return (
-    <div className="filePage__container">
+    <div className="filePage__container" style={{backgroundImage: `url(${file.imageURL})`}}>
+      <div className="colorCover" style={{ background: typeColor }}></div>
       <div className="filePage__type" style={{ background: typeColor }}>
         <span>{file.type}</span>
       </div>
@@ -64,7 +65,7 @@ export default function FilePage(props) {
         <img src={file.imageURL} alt={file.title} className="filePage__image" />
         <div className="filePage__demography">
           <span style={{ background: demographyColor }}>
-            {file.demography === "Seinen" && <FavoriteIcon />}
+            {ecchi && <FavoriteIcon />}
             {file.demography}
           </span>
         </div>

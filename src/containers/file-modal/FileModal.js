@@ -18,7 +18,7 @@ const FileModal = ({ hideFile, props }) => {
   const type = props.type.toLowerCase();
   const [color, setColor] = useState("");
 
-  const { typeColor, demographyColor } = useColor(props.type, props.demography);
+  const { typeColor, demographyColor, ecchi } = useColor(props.type, props.demography, props.tags.slice());
 
   useEffect(() => {
     props.status === "En progreso" ? setColor("#51a351") : setColor("#bd362f");
@@ -35,6 +35,7 @@ const FileModal = ({ hideFile, props }) => {
       </IconButton>
 
       <div className="fileModal__container">
+        <div className="colorCover" style={{ background: typeColor }}></div>
         <div className="fileModal__type" style={{ background: typeColor }}>
           <span>{props.type}</span>
         </div>
@@ -46,7 +47,7 @@ const FileModal = ({ hideFile, props }) => {
           </span>
           <img src={props.bg} alt={props.title} className="fileModal__image" />
           <div className="fileModal__demography" style={{ background: demographyColor }}>
-            {props.demography === "Seinen" && <IconType />}
+            {ecchi && <IconType />}
             <span >{props.demography}</span>
           </div>
         </div>

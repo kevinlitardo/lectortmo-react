@@ -14,9 +14,8 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { Avatar } from "@material-ui/core";
 
 export default function Header({ showMenu }) {
-  const { user, setUser } = useContext(UserContext);
+  const { user, setUser, setAlert } = useContext(UserContext);
   const [userMenu, setUserMenu] = useState(false);
-  const [logged, setLogged] = useState(true);
   let history = useHistory();
 
   const showUserMenu = () => {
@@ -24,9 +23,11 @@ export default function Header({ showMenu }) {
   };
 
   const handleClick = () => {
-    if (!user.username) setLogged(false);
+    if (!user.username) setAlert({
+      status: true,
+      message: 'Necesitas haber iniciado sesión primero!'
+    });
     if (user.username) {
-      setLogged(true);
       history.push("/upload");
     }
   };

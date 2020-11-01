@@ -6,6 +6,10 @@ export const UserContext = createContext();
 
 export function UserProvider(props) {
   const [loading, setLoading] = useState(true)
+  const [alert, setAlert] = useState({
+    status: null,
+    message: ''
+  })
   const checkUser = async ( token ) => {
     try {
       const res = await axios({
@@ -37,6 +41,16 @@ export function UserProvider(props) {
       setLoading(false)
     }
   }, [])
+  useEffect(()=>{
+    if(alert.status){
+      setTimeout(() => {
+        setAlert({
+          status: null,
+          message: ''
+        })
+      }, 7000);
+    }
+  }, [alert])
 
   const [user, setUser] = useState({
     username: null,
@@ -46,7 +60,7 @@ export function UserProvider(props) {
   });
 
   return (
-    <UserContext.Provider value={{ setUser, user, loading }}>
+    <UserContext.Provider value={{ setUser, user, loading, alert, setAlert}}>
       {props.children}
     </UserContext.Provider>
   );

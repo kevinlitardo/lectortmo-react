@@ -12,10 +12,10 @@ export default function NewsItem({
   views,
   author,
   date,
-  styles,
+  background,
 }) {
   return (
-    <div className="newsItem" style={styles}>
+    <div className="newsItem" style={{backgroundImage: `url(${background})`}}>
       <div className="newsItem__title">
         <h3>{title}</h3>
       </div>

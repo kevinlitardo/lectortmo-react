@@ -1,9 +1,4 @@
 .lastNewsContainer {
-  display: flex;
-  flex-direction: column;
-  row-gap: 10px;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   height: auto;
   margin-top: 20px;
@@ -13,4 +8,5 @@
   font-size: xx-large;
   font-weight: normal;
   color: #2957ba;
+  text-align: center;
 }

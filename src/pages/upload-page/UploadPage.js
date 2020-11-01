@@ -41,7 +41,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const tags = ["Acción", "Apocalíptico", "Artes Marciales", "Aventura", "Ciencia Ficción", "Comedia", "Cyberpunk", "Demonios", "Deporte", "Drama", "Ecchi", "Gore", "Harem", "Horror", "Isekai", "Magia", "Mecha", "Militar", "Misterio", "Psicológico", "Recuentos de vida", "Reencarnación", "Romance", "Samuraí", "Sobrenatural", "Superpoderes", "Supervivencia", "Tragedia", "Vida Escolar", "Webcomic"];
+const tags = ["Acción", "Apocalíptico", "Artes Marciales", "Aventura", "Ciencia Ficción", "Comedia", "Cyberpunk", "Demonios", "Deporte", "Drama", "Ecchi", "Erótico", "Gore", "Harem", "Horror", "Isekai", "Magia", "Mecha", "Militar", "Misterio", "Psicológico", "Recuentos de vida", "Reencarnación", "Romance", "Samuraí", "Sobrenatural", "Superpoderes", "Supervivencia", "Tragedia", "Vida Escolar", "Webcomic"];
 
 export default function UploadPage() {
   const {user} = useContext(UserContext)

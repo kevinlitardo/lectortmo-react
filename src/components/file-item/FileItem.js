@@ -25,7 +25,7 @@ export function FileItem(props) {
   const showFile = () => setFileModal(true);
   const hideFile = () => setFileModal(false);
 
-  const { typeColor, demographyColor } = useColor(props.type, props.demography);
+  const { typeColor, demographyColor, ecchi } = useColor(props.type, props.demography, props.tags.slice());
 
   return (
     <>
@@ -41,7 +41,7 @@ export function FileItem(props) {
             </span>
           </div>
           <div className="fileItem__footer" style={{ background: demographyColor }}>
-            {props.demography === "Seinen" && <IconType />}
+            {ecchi && <IconType />}
             <h3>{props.demography}</h3>
           </div>
         </div>
