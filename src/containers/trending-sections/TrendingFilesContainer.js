@@ -8,22 +8,39 @@ import "./TrendingContainer.css";
 import StarIcon from "@material-ui/icons/Star";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import { Grid } from "@material-ui/core";
+import { makeStyles } from '@material-ui/core/styles';
+import Pagination from '@material-ui/lab/Pagination';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& > *': {
+      marginTop: theme.spacing(3),
+      display: 'flex',
+      justifyContent: 'center',
+    }
+  }
+}));
 
 export default function TrendingMangasContainer({search}) {
+  const classes = useStyles();
+  const [page, setPage] = useState(1)
+
   let url;
   if(search !== 'all'){
-    url = `https://lectortmo-api.herokuapp.com/api/trending/${search}?page=1&limit=10`
+    url = `https://lectortmo-api.herokuapp.com/api/trending/${search}?page=${page}&limit=12`
   } else {
-    url = `https://lectortmo-api.herokuapp.com/api/trending?page=1&limit=10`
+    url = `https://lectortmo-api.herokuapp.com/api/trending?page=${page}&limit=12`
   }
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+  const [totalPages, setTotal] = useState(0)
 
   useEffect(() => {
     const fetcher = async () => {
       try {
         const req = await axios.get(url);
         setData(req.data.results);
+        setTotal(parseInt(req.data.page.page.split('/')[1]))
         setLoading(false);
       } catch (error) {
         console.error(error);
@@ -31,6 +48,10 @@ export default function TrendingMangasContainer({search}) {
     };
     fetcher();
   }, [search, url]);
+
+  const handleChange = (_e, value) => {
+    setPage(value);
+  };
 
   if (loading) {
     return <Loading />;
@@ -58,6 +79,10 @@ export default function TrendingMangasContainer({search}) {
           </Grid>
         ))}
       </Grid>
+
+      <div className={classes.root}>
+        <Pagination count={totalPages} page={page} onChange={handleChange} />
+      </div>
     </div>
   );
 }

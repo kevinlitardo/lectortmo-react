@@ -41,6 +41,16 @@ body
   > .MuiListItem-root.Mui-selected {
   background: rgba(0, 0, 0, 0.452);
 }
+
+.MuiPaginationItem-root {
+  color: #f1f1f1 !important;
+  font-size: medium !important;
+}
+
+.MuiPaginationItem-page.Mui-selected {
+  background-color: #2957bab0 !important;
+}
+
 @media only screen and (min-width: 1024px) {
   body > .MuiPopover-root > .MuiPaper-root > .MuiList-root > .MuiListItem-root {
     font-size: large !important;

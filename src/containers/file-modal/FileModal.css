@@ -5,6 +5,7 @@
   top: 0;
   left: 0;
   bottom: 0;
+  right: 0;
   overflow-y: scroll;
   background: rgba(2, 2, 2, 0.9);
   color: #f1f1f1;
@@ -32,8 +33,8 @@
 }
 
 .fileModal__container {
-  position: fixed;
-  width: 100%;
+  position: relative;
+  width: auto;
   height: auto;
   background: #222;
   display: flex;
@@ -355,6 +356,10 @@
   }
 }
 @media only screen and (min-width: 1440px) {
+  .fileModal__container {
+    width: 65%;
+    height: auto;
+  }
   .fileModal__container > .fileModal__type {
     height: 45px;
     font-size: xx-large;
