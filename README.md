@@ -9,6 +9,11 @@
 
 <!-- prettier-ignore -->
 ### Try by yourself [here](https://lectortmo.netlify.app/) 🔗
+You could login or register and see how is the upload, edit and delete system.
+- Email  
+test2@test.com 
+- Password   
+trestres
 
 <!-- prettier-ignore -->
 ### Getting Started 🚀
