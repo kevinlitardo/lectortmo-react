@@ -1,68 +1,67 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# LectorTMO clone 💻
 
-## Available Scripts
+<!-- prettier-ignore -->
+**¿Could you decide what is the best story for you among all?** \
+**Explore and discover new awesome world inside those pages**
 
-In the project directory, you can run:
+<!-- prettier-ignore -->
+<img src='https://res.cloudinary.com/dy14mattw/image/upload/v1604294306/lectortmo_n6vp6q.jpg' width='720px'>
 
-### `npm start`
+<!-- prettier-ignore -->
+### Try by yourself [here](https://lectortmo.netlify.app/) 🔗
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<!-- prettier-ignore -->
+### Getting Started 🚀
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<!-- prettier-ignore -->
+  Feel free to modify cloning the repository
 
-### `npm test`
+<!-- prettier-ignore -->
+  ` git clone https://github.com/Ricqrdo/Library-react-webpack `
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<!-- prettier-ignore -->
+  Then install dependencies with
 
-### `npm run build`
+<!-- prettier-ignore -->
+  ` npm install `
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<!-- prettier-ignore -->
+### Scripts for development and deployment ⚙️
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+<!-- prettier-ignore -->
+  To start a development server use
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<!-- prettier-ignore -->
+  ` npm start `
 
-### `npm run eject`
+<!-- prettier-ignore -->
+  And if you want to get a minified version ready to upload use
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<!-- prettier-ignore -->
+  ` npm run build `
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<!-- prettier-ignore -->
+### This project was made using 🛠️
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<!-- prettier-ignore -->
+  <a href='https://github.com/facebook/react'><img src='https://res.cloudinary.com/dy14mattw/image/upload/v1604294416/react-brand_gvajkp.png' width='110px'></a>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<!-- prettier-ignore -->
+  <a href='https://github.com/mui-org/material-ui'><img src='https://res.cloudinary.com/dy14mattw/image/upload/v1604294621/material-ui_web6fz.svg' width='60px'></a>
 
-## Learn More
+<!-- prettier-ignore -->
+## Author ✒️
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<!-- prettier-ignore -->
+<a href='https://github.com/Ricqrdo'><img src='https://res.cloudinary.com/dy14mattw/image/upload/v1604295437/github_k0a656.svg' width='60px'></a>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<!-- prettier-ignore -->
+<a href='https://www.linkedin.com/in/ricqrdo/'><img src='https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo.svg' width='80px'></a>
 
-### Code Splitting
+<!-- prettier-ignore -->
+<a href='https://twitter.com/Ricqrdo__'><img src='https://upload.wikimedia.org/wikipedia/commons/5/51/Twitter_logo.svg' width='80px'></a>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## License 📜
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+<!-- prettier-ignore -->
+  This project is [MIT licensed](https://github.com/facebook/react/blob/master/LICENSE)
