@@ -22,7 +22,7 @@ trestres
   Feel free to modify cloning the repository
 
 <!-- prettier-ignore -->
-  ` git clone https://github.com/Ricqrdo/lectortmo-react
+  ` git clone https://github.com/Ricqrdo/lectortmo-react `
 
 <!-- prettier-ignore -->
   Then install dependencies with
